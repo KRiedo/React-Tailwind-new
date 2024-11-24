@@ -85,13 +85,13 @@ export default function GameBoardPage() {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <div className="w-full p-2 flex items-center">
-        <div className="w-24 md:w-32 lg:w-48">
+        <div className="w-16 md:w-32 lg:w-48">
           <img src={BinusLogo} alt="Snake and Ladders" className="w-full" />
         </div>
         <div className="flex-1 flex justify-center items-center">
-          <h2 className="text-xl md:text-3xl lg:text-4xl flex items-baseline">
+          <h2 className="text-3xl md:text-5xl lg:text-7xl flex items-baseline">
             <span className="font-arsenica font-normal pb-4">Accountin</span>
-            <span className="font-arsenica font-medium text-2xl md:text-4xl lg:text-5xl">G</span>
+            <span className="font-arsenica font-medium text-3xl md:text-5xl lg:text-7xl">G</span>
             <span className="font-arsenica font-normal pt-2">etSuccess</span>
           </h2>
         </div>
