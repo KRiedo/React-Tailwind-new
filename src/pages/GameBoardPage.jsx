@@ -89,10 +89,10 @@ export default function GameBoardPage() {
           <img src={BinusLogo} alt="Snake and Ladders" className="w-full" />
         </div>
         <div className="flex-1 flex justify-center items-center">
-          <h2 className="text-xl md:text-3xl lg:text-4xl font-bold flex items-baseline">
-            <span className="pb-4">Accountin</span>
-            <span className="text-2xl md:text-4xl lg:text-5xl">G</span>
-            <span className="pt-2">et Success</span>
+          <h2 className="text-xl md:text-3xl lg:text-4xl flex items-baseline">
+            <span className="font-arsenica font-normal pb-4">Accountin</span>
+            <span className="font-arsenica font-medium text-2xl md:text-4xl lg:text-5xl">G</span>
+            <span className="font-arsenica font-normal pt-2">etSuccess</span>
           </h2>
         </div>
       </div>
@@ -100,7 +100,7 @@ export default function GameBoardPage() {
       <div className="flex-1 flex">
         <div className="w-12 md:w-16 lg:w-20 relative flex-shrink-0">
           <div
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-90 whitespace-nowrap text-sm md:text-base lg:text-lg"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-90 whitespace-nowrap text-sm md:text-base lg:text-lg font-semibold font-fredoka"
             style={{ transformOrigin: 'center center', width: 'max-content' }}
           >
             Accounting Laboratory
@@ -148,7 +148,7 @@ export default function GameBoardPage() {
         </div>
         <div className="w-12 md:w-16 lg:w-20 relative flex-shrink-0">
           <div
-            className="absolute right-1/2 top-1/2 translate-x-1/2 -translate-y-1/2 rotate-90 whitespace-nowrap text-sm md:text-base lg:text-lg"
+            className="absolute right-1/2 top-1/2 translate-x-1/2 -translate-y-1/2 rotate-90 whitespace-nowrap text-sm md:text-base lg:text-lg font-medium font-workSans"
             style={{ transformOrigin: 'center center', width: 'max-content' }}
           >
             School of Accounting, BINUS University
