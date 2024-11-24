@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import BlackSnake from "../assets/Black-Snake.png";
-import BlueSnake from "../assets/Blue-Snake.png";
-import BrownSnake from "../assets/Brown-Snake.png";
-import MuddSnake from "../assets/Mudd-Snake.png";
-import PythonSnake from "../assets/Python-Snake.png";
-import CenterLadder from "../assets/Center-Ladder.png";
-import LeftLadder from "../assets/Left-Ladder.png";
-import RightLadder from "../assets/Right-Ladder.png";
-import BinusLogo from "../assets/Logo-Binus.png";
+import BlackSnake from "../assets/images/Black-Snake.png";
+import BlueSnake from "../assets/images/Blue-Snake.png";
+import BrownSnake from "../assets/images/Brown-Snake.png";
+import MuddSnake from "../assets/images/Mudd-Snake.png";
+import PythonSnake from "../assets/images/Python-Snake.png";
+import CenterLadder from "../assets/images/Center-Ladder.png";
+import LeftLadder from "../assets/images/Left-Ladder.png";
+import RightLadder from "../assets/images/Right-Ladder.png";
+import BinusLogo from "../assets/images/Logo-Binus.png";
 
 export default function GameBoardPage() {
   const [squares, setSquares] = useState([]);

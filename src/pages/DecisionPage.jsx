@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
-import People from "../assets/People-Logo.png";
-import Background from "../assets/LP-Wallpaper.png";
+import People from "../assets/images/People-Logo.png";
+import Background from "../assets/images/LP-Wallpaper.png";
 
 export default function DecisionPage() {
   const [numPlayers, setNumPlayers] = useState(2);

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import Logo from "../assets/Logo-Binus.png";
-import Background from "../assets/LP-Wallpaper.png";
+import Logo from "../assets/images/Logo-Binus.png";
+import Background from "../assets/images/LP-Wallpaper.png";
 
 export default function LandingPage() {
   const navigate = useNavigate();
