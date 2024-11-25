@@ -55,9 +55,9 @@ export default function GameBoardPage() {
         </div>
         <div className="flex-1 flex justify-center items-center">
           <h2 className="text-3xl md:text-5xl lg:text-7xl flex items-baseline">
-            <span className="font-arsenica font-normal pb-4">Accountin</span>
+            <span className="font-arsenica font-normal pb-4" style={{ transform: "translateY(-11px)" }} >Accountin</span>
             <span className="font-arsenica font-medium text-3xl md:text-5xl lg:text-7xl">G</span>
-            <span className="font-arsenica font-normal pt-2">etSuccess</span>
+            <span className="font-arsenica font-normal pt-2">et Success</span>
           </h2>
         </div>
       </div>
