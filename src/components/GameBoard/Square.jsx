@@ -1,6 +1,9 @@
 import React from 'react';
 
 const Square = ({ square }) => {
+  // Array warna dengan urutan sesuai instruksi
+  const colors = ['#98dbc6', '#5bc8ac', '#e6d72a', '#f18d9e'];
+
   return (
     <g key={square.id}>
       <rect
@@ -9,7 +12,8 @@ const Square = ({ square }) => {
         width="120"
         height="56"
         stroke="black"
-        fill={["aqua", "turquoise", "yellow", "pink"][(100 - square.id) % 4]}
+        // Gunakan warna berdasarkan indeks modulo 4
+        fill={colors[(square.id - 1) % 4]}
       />
       <text
         x={square.x + 60}

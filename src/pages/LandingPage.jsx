@@ -37,7 +37,7 @@ export default function LandingPage() {
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 1.5, ease: "easeOut" }}
             >
-              Snake
+              Snakes
             </motion.span>
             <motion.span
               className="font-edu text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold text-gray-900"
@@ -45,7 +45,7 @@ export default function LandingPage() {
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1.5 }}
             >
-              and
+              And
             </motion.span>
             <motion.span
               className="font-edu text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold text-gray-900 mx-3"
@@ -53,7 +53,7 @@ export default function LandingPage() {
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 1.5, ease: "easeOut" }}
             >
-              Ladder
+              Ladders
             </motion.span>
           </div>
 
