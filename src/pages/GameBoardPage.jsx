@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import GameBoard from "../components/GameBoard/GameBoard";
+import GameControls from "../components/GameBoard/GameControls";
 import BlackSnake from "../assets/images/Black-Snake.png";
 import BlueSnake from "../assets/images/Blue-Snake.png";
 import BrownSnake from "../assets/images/Brown-Snake.png";
@@ -45,43 +47,6 @@ export default function GameBoardPage() {
     setSquares(newSquares);
   }, []);
 
-  const renderSnakeOrLadder = (position) => {
-    const foundSnake = snakes.find((snake) => snake.from === position);
-    const foundLadder = ladders.find((ladder) => ladder.from === position);
-
-    if (foundSnake) {
-      return (
-        <image
-          key={`snake-${position}`}
-          href={foundSnake.image}
-          x={foundSnake.x}
-          y={foundSnake.y}
-          width={foundSnake.width}
-          height={foundSnake.height}
-          style={{ zIndex: foundSnake.zIndex }}
-          transform={`rotate(${foundSnake.rotation}, ${foundSnake.x + foundSnake.width / 2}, ${foundSnake.y + foundSnake.height / 2})`}
-        />
-      );
-    }
-
-    if (foundLadder) {
-      return (
-        <image
-          key={`ladder-${position}`}
-          href={foundLadder.image}
-          x={foundLadder.x}
-          y={foundLadder.y}
-          width={foundLadder.width}
-          height={foundLadder.height}
-          style={{ zIndex: foundLadder.zIndex }}
-          transform={`rotate(${foundLadder.rotation}, ${foundLadder.x + foundLadder.width / 2}, ${foundLadder.y + foundLadder.height / 2})`}
-        />
-      );
-    }
-
-    return null;
-  };
-
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <div className="w-full p-2 flex items-center">
@@ -106,46 +71,9 @@ export default function GameBoardPage() {
             Accounting Laboratory
           </div>
         </div>
-        <div className="flex-1 relative flex justify-center items-center p-0 min-w-0">
-          <div className="w-full h-[80vh] max-w-[90vw] md:max-w-[80vw] lg:max-w-[1200px]">
-            <svg
-              viewBox="0 0 1200 570"
-              className="w-full h-full"
-              preserveAspectRatio="xMidYMid meet"
-            >
-              <g>
-                {squares.map((square) => (
-                  <g key={square.id}>
-                    <rect
-                      x={square.x}
-                      y={square.y}
-                      width="120"
-                      height="56"
-                      stroke="black"
-                      fill={["aqua", "turquoise", "yellow", "pink"][(100 - square.id) % 4]}
-                    />
-                    <text
-                      x={square.x + 60}
-                      y={square.y + 30}
-                      textAnchor="middle"
-                      dominantBaseline="middle"
-                      fontFamily="Poppins"
-                      fontSize="22"
-                      fontWeight="900"
-                      fill="black"
-                    >
-                      {square.id}
-                    </text>
-                  </g>
-                ))}
-
-                <g className="snakes-and-ladders">
-                  {squares.map((square) => renderSnakeOrLadder(square.id))}
-                </g>
-              </g>
-            </svg>
-          </div>
-        </div>
+        
+        <GameBoard squares={squares} snakes={snakes} ladders={ladders} />
+        
         <div className="w-12 md:w-16 lg:w-20 relative flex-shrink-0">
           <div
             className="absolute right-1/2 top-1/2 translate-x-1/2 -translate-y-1/2 rotate-90 whitespace-nowrap text-sm md:text-base lg:text-lg font-medium font-workSans"
@@ -155,6 +83,8 @@ export default function GameBoardPage() {
           </div>
         </div>
       </div>
+      
+      <GameControls />
     </div>
   );
 }
