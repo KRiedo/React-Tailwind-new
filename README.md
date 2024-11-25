@@ -43,3 +43,5 @@ Pertanyaan akan mencakup berbagai topik akuntansi, seperti:
 4. **xxx**
 
 ## Copyright 2024
+
+## Hal baru

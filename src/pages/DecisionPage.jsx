@@ -22,7 +22,7 @@ export default function DecisionPage() {
 
       {/* Lobby Room Section */}
       <div className="relative flex items-center justify-center h-screen">
-        <div className="w-80 sm:w-96 bg-orange-200 bg-opacity-70 text-center p-6 rounded-lg shadow-lg mx-auto">
+        <div className="w-80 sm:w-96 text-center p-6 rounded-lg shadow-lg mx-auto bg-[#fff4ea] bg-opacity-90">
           <div className="mb-6">
             <img className="w-24 sm:w-32 mx-auto" src={People} alt="People" />
           </div>

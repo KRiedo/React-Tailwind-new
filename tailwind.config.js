@@ -7,10 +7,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        edu: ['"Edu AU VIC WA NT Pre"','sans-serif'],
         arsenica: ['"Arsenica"', 'sans-serif'],
         fredoka: ['"Fredoka"', 'sans-serif'],
         workSans: ['"Work Sans"', 'sans-serif'],
+        bungee: ['"Bungee Spice"', 'sans-serif'],
       },
     },
   },
