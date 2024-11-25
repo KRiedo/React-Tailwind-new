@@ -21,7 +21,7 @@ export default function LandingPage() {
       <motion.img
         src={Logo}
         alt="Logo"
-        className="absolute top-4 right-4 h-16 sm:h-20 lg:h-24" // Adjust size responsively
+        className="absolute top-4 right-4 h-16 sm:h-20 lg:h-20" // Adjust size responsively
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
