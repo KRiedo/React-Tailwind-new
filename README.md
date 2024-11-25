@@ -41,3 +41,5 @@ Pertanyaan akan mencakup berbagai topik akuntansi, seperti:
 2. **Jauzack Falah Arassy - Computer Science - Lab Accounting Intern**
 3. **xxx**
 4. **xxx**
+
+## Copyright 2024
