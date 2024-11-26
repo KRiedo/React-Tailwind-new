@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import GameBoard from "../components/GameBoard/GameBoard";
 import GameControls from "../components/GameBoard/GameControls";
+import Dice from "../components/GameBoard/Dice";
+
 import BlackSnake from "../assets/images/Black-Snake.png";
 import BlueSnake from "../assets/images/Blue-Snake.png";
 import BrownSnake from "../assets/images/Brown-Snake.png";
@@ -13,6 +15,8 @@ import BinusLogo from "../assets/images/Logo-Binus.png";
 
 export default function GameBoardPage() {
   const [squares, setSquares] = useState([]);
+  const [diceResult, setDiceResult] = useState(null);
+  const [isRolling, setIsRolling] = useState(false);
 
   const snakes = [
     { from: 99, to: 62, image: BlackSnake, x: 80, y: 5, width: 200, height: 200, rotation: 300, zIndex: 1 },
@@ -47,21 +51,28 @@ export default function GameBoardPage() {
     setSquares(newSquares);
   }, []);
 
+  const handleRollComplete = (result) => {
+    setDiceResult(result);
+    setIsRolling(false);
+  };
+
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#fff4ea" }}>
+      {/* Header Section */}
       <div className="w-full p-2 flex items-center">
         <div className="w-16 md:w-32 lg:w-48">
           <img src={BinusLogo} alt="Snake and Ladders" className="w-full" />
         </div>
         <div className="flex-1 flex justify-center items-center">
           <h2 className="text-3xl md:text-5xl lg:text-7xl flex items-baseline">
-            <span className="font-arsenica font-normal pb-4" style={{ transform: "translateY(-11px)" }} >Accountin</span>
+            <span className="font-arsenica font-normal pb-4" style={{ transform: "translateY(-11px)" }}>Accountin</span>
             <span className="font-arsenica font-medium text-3xl md:text-5xl lg:text-7xl">G</span>
             <span className="font-arsenica font-normal pt-2">et Success</span>
           </h2>
         </div>
       </div>
 
+      {/* Main Content */}
       <div className="flex-1 flex">
         <div className="w-12 md:w-16 lg:w-20 relative flex-shrink-0">
           <div
@@ -72,8 +83,10 @@ export default function GameBoardPage() {
           </div>
         </div>
         
+        {/* Game Board */}
         <GameBoard squares={squares} snakes={snakes} ladders={ladders} />
         
+        {/* Right Panel */}
         <div className="w-12 md:w-16 lg:w-20 relative flex-shrink-0">
           <div
             className="absolute right-1/2 top-1/2 translate-x-1/2 -translate-y-1/2 rotate-90 whitespace-nowrap text-sm md:text-base lg:text-lg font-medium font-workSans"
@@ -83,8 +96,19 @@ export default function GameBoardPage() {
           </div>
         </div>
       </div>
-      
-      <GameControls />
+
+      {/* Dice and Game Controls */}
+      <div className="w-full flex flex-col items-center p-4">
+        <Dice 
+          onRollComplete={handleRollComplete} 
+          isRolling={isRolling} 
+          setIsRolling={setIsRolling}
+        />
+        <GameControls 
+          diceResult={diceResult} 
+          isRolling={isRolling}
+        />
+      </div>
     </div>
   );
 }
