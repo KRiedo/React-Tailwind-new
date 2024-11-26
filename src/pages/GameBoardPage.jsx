@@ -13,6 +13,7 @@ import BinusLogo from "../assets/images/Logo-Binus.png";
 
 export default function GameBoardPage() {
   const [squares, setSquares] = useState([]);
+  const [playerPosition, setPlayerPosition] = useState(1);
 
   const snakes = [
     { from: 99, to: 62, image: BlackSnake, x: 80, y: 5, width: 200, height: 200, rotation: 300, zIndex: 1 },
@@ -47,8 +48,30 @@ export default function GameBoardPage() {
     setSquares(newSquares);
   }, []);
 
+  const handleDiceRoll = (roll) => {
+    let newPosition = playerPosition + roll;
+
+    // Check snakes and ladders
+    snakes.forEach((snake) => {
+      if (snake.from === newPosition) {
+        newPosition = snake.to;
+      }
+    });
+    ladders.forEach((ladder) => {
+      if (ladder.from === newPosition) {
+        newPosition = ladder.to;
+      }
+    });
+
+    // Prevent overflow past 100
+    if (newPosition > 100) newPosition = 100;
+
+    setPlayerPosition(newPosition);
+  };
+
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#fff4ea" }}>
+      {/* Header Section */}
       <div className="w-full p-2 flex items-center">
         <div className="w-16 md:w-32 lg:w-48">
           <img src={BinusLogo} alt="Snake and Ladders" className="w-full" />
@@ -62,7 +85,9 @@ export default function GameBoardPage() {
         </div>
       </div>
 
+      {/* Board and Controls Section */}
       <div className="flex-1 flex">
+        {/* Left Sidebar */}
         <div className="w-12 md:w-16 lg:w-20 relative flex-shrink-0">
           <div
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-90 whitespace-nowrap text-sm md:text-base lg:text-lg font-semibold font-fredoka"
@@ -72,8 +97,15 @@ export default function GameBoardPage() {
           </div>
         </div>
         
-        <GameBoard squares={squares} snakes={snakes} ladders={ladders} />
+        {/* Game Board */}
+        <GameBoard
+          squares={squares}
+          snakes={snakes}
+          ladders={ladders}
+          playerPosition={playerPosition}
+        />
         
+        {/* Right Sidebar */}
         <div className="w-12 md:w-16 lg:w-20 relative flex-shrink-0">
           <div
             className="absolute right-1/2 top-1/2 translate-x-1/2 -translate-y-1/2 rotate-90 whitespace-nowrap text-sm md:text-base lg:text-lg font-medium font-workSans"
@@ -84,7 +116,8 @@ export default function GameBoardPage() {
         </div>
       </div>
       
-      <GameControls />
+      {/* Game Controls */}
+      <GameControls onDiceRoll={handleDiceRoll} />
     </div>
   );
 }
