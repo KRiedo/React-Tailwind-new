@@ -9,40 +9,43 @@ const Dice3D = ({ isRolling, onRollComplete }) => {
     return Math.floor(Math.random() * 6) + 1;
   }, []);
 
+  // Mapping sisi dadu ke rotasi yang sesuai
+  const faceRotations = {
+    1: [0, 0, 0],        // Depan
+    2: [0, -90, 0],      // Kanan
+    3: [90, 0, 0],       // Atas
+    4: [-90, 0, 0],      // Bawah
+    5: [0, 90, 0],       // Kiri
+    6: [0, 180, 0],      // Belakang
+  };
+
   useEffect(() => {
     let isMounted = true;
 
     const rollDice = async () => {
       if (!isRolling) return;
 
-      await controls.set({
-        rotateX: 0,
-        rotateY: 0,
-        rotateZ: 0,
-        y: 0,
-      });
+      const finalRoll = getRandomNumber();
+      const [finalRotX, finalRotY, finalRotZ] = faceRotations[finalRoll];
 
+      // Menggabungkan animasi rolling dan rotasi akhir dalam satu animasi
       await controls.start({
-        rotateX: [0, 720, 1440, 2160],
-        rotateY: [0, 540, 1080, 1620],
-        rotateZ: [0, 360, 720, 1080],
-        y: [0, -150, -50, 0],
+        rotateX: [0, 720 + finalRotX],
+        rotateY: [0, 720 + finalRotY],
+        rotateZ: [0, 720 + finalRotZ],
+        y: [0, -150, 0],
         transition: {
-          duration: 2,
-          times: [0, 0.4, 0.7, 1],
+          duration: 1.5,
+          times: [0, 0.6, 1],
           ease: "easeInOut",
         },
       });
 
-      const finalRoll = getRandomNumber();
-
       if (isMounted) {
         setDiceValue(finalRoll);
-        setTimeout(() => {
-          if (isMounted && onRollComplete) {
-            onRollComplete(finalRoll);
-          }
-        }, 200);
+        if (onRollComplete) {
+          onRollComplete(finalRoll);
+        }
       }
     };
 
@@ -55,26 +58,75 @@ const Dice3D = ({ isRolling, onRollComplete }) => {
     };
   }, [isRolling, getRandomNumber, controls, onRollComplete]);
 
-  const faces = {
-    1: "•",
-    2: "••",
-    3: "•••",
-    4: "••••",
-    5: "•••••",
-    6: "••••••",
-  };
-
   return (
-    <motion.div
-      animate={controls}
-      className="flex items-center justify-center w-16 h-16 bg-white rounded-lg shadow-lg border-2 border-gray-200"
-      style={{
-        transformStyle: "preserve-3d",
-        perspective: "1000px",
-      }}
-    >
-      <span className="text-2xl">{faces[diceValue]}</span>
-    </motion.div>
+    <div className="w-24 h-24 perspective-1000">
+      <motion.div
+        animate={controls}
+        className="w-full h-full relative transform-style-preserve-3d"
+        style={{
+          transformStyle: "preserve-3d",
+        }}
+      >
+        {/* Face 1 - Front */}
+        <div className="absolute w-full h-full bg-[#B8001F] border-1 border-orange-200 rounded-lg flex items-center justify-center transform-gpu"
+             style={{ transform: 'translateZ(3rem)' }}>
+          <div className="w-4 h-4 bg-white rounded-full"/>
+        </div>
+
+        {/* Face 2 - Right */}
+        <div className="absolute w-full h-full bg-[#B8001F] border-1 border-orange-200 rounded-lg flex items-center justify-center transform-gpu"
+             style={{ transform: 'rotateY(90deg) translateZ(3rem)' }}>
+          <div className="flex flex-col justify-between h-3/5">
+            <div className="w-4 h-4 bg-white rounded-full"/>
+            <div className="w-4 h-4 bg-white rounded-full"/>
+          </div>
+        </div>
+
+        {/* Face 3 - Top */}
+        <div className="absolute w-full h-full bg-[#B8001F] border-1 border-orange-200 rounded-lg grid grid-cols gap-2 p-4 ps-9 transform-gpu"
+             style={{ transform: 'rotateX(-90deg) translateZ(3rem)' }}>
+          <div className="w-4 h-4 bg-white rounded-full"/>
+          <div className="w-4 h-4 bg-white rounded-full"/>
+          <div className="w-4 h-4 bg-white rounded-full"/>
+        </div>
+
+        {/* Face 4 - Bottom */}
+        <div className="absolute w-full h-full bg-[#B8001F] border-1 border-orange-200 rounded-lg grid grid-cols-2 gap-2 p-6 transform-gpu"
+             style={{ transform: 'rotateX(90deg) translateZ(3rem)' }}>
+          <div className="w-4 h-4 bg-white rounded-full"/>
+          <div className="w-4 h-4 bg-white rounded-full"/>
+          <div className="w-4 h-4 bg-white rounded-full"/>
+          <div className="w-4 h-4 bg-white rounded-full"/>
+        </div>
+
+        {/* Face 5 - Left */}
+        <div className="absolute w-full h-full bg-[#B8001F] border-1 border-orange-200 rounded-lg ps-1 transform-gpu"
+             style={{ transform: 'rotateY(-90deg) translateZ(3rem)' }}>
+          <div className="w-full h-full grid grid-cols-3 grid-rows-3 p-4">
+            <div className="w-4 h-4 bg-white rounded-full"/>
+            <div className="w-4 h-4 bg-white rounded-full invisible"/>
+            <div className="w-4 h-4 bg-white rounded-full"/>
+            <div className="w-4 h-4 bg-white rounded-full invisible"/>
+            <div className="w-4 h-4 bg-white rounded-full"/>
+            <div className="w-4 h-4 bg-white rounded-full invisible"/>
+            <div className="w-4 h-4 bg-white rounded-full"/>
+            <div className="w-4 h-4 bg-white rounded-full invisible"/>
+            <div className="w-4 h-4 bg-white rounded-full"/>
+          </div>
+        </div>
+
+        {/* Face 6 - Back */}
+        <div className="absolute w-full h-full bg-[#B8001F] border-1 border-orange-200 rounded-lg grid grid-cols-2 gap-2 p-6 pt-4 transform-gpu"
+             style={{ transform: 'rotateY(180deg) translateZ(3rem)' }}>
+          <div className="w-4 h-4 bg-white rounded-full"/>
+          <div className="w-4 h-4 bg-white rounded-full"/>
+          <div className="w-4 h-4 bg-white rounded-full"/>
+          <div className="w-4 h-4 bg-white rounded-full"/>
+          <div className="w-4 h-4 bg-white rounded-full"/>
+          <div className="w-4 h-4 bg-white rounded-full"/>
+        </div>
+      </motion.div>
+    </div>
   );
 };
 
