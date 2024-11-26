@@ -11,28 +11,28 @@ export default function LandingPage() {
 
   return (
     <section
-      className="relative flex items-center justify-center h-screen bg-white bg-cover bg-center"
+      className="relative flex items-center justify-center min-h-screen w-full bg-cover bg-center"
       style={{ backgroundImage: `url(${Background})` }}
     >
-      {/* Overlay with full responsiveness */}
+      {/* Overlay dengan responsivitas penuh */}
       <div className="absolute inset-0 bg-orange-200 opacity-30"></div>
 
-      {/* Logo in top-right corner */}
+      {/* Logo di sudut kanan atas */}
       <motion.img
         src={Logo}
         alt="Logo"
-        className="absolute top-4 right-4 h-16 sm:h-20 lg:h-20" // Adjust size responsively
+        className="absolute top-4 right-4 h-16 sm:h-20 lg:h-24 w-auto max-w-full" 
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
       />
 
-      <div className="relative text-center px-4">
-        <figure className="mt-8">
-          <div className="flex flex-row sm:flex-row sm:justify-center sm:space-x-4">
-            {/* Responsive animations for text */}
+      <div className="relative text-center px-4 w-full">
+        <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-wrap justify-center items-center space-x-2 sm:space-x-4">
+            {/* Animasi teks responsif */}
             <motion.span
-              className="font-bungee text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold text-gray-900 mx-3"
+              className="font-bungee text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold text-gray-900"
               initial={{ x: -50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 1.5, ease: "easeOut" }}
@@ -48,7 +48,7 @@ export default function LandingPage() {
               And
             </motion.span>
             <motion.span
-              className="font-bungee text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold text-gray-900 mx-3"
+              className="font-bungee text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold text-gray-900"
               initial={{ x: 50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 1.5, ease: "easeOut" }}
@@ -57,19 +57,17 @@ export default function LandingPage() {
             </motion.span>
           </div>
 
-          {/* Play button */}
-          <figcaption className="mt-10">
-            <motion.button
-              className="bg-orange-400 hover:bg-orange-600 text-white font-semibold py-3 px-6 sm:px-8 rounded-full text-sm sm:text-base"
-              initial={{ y: 100, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1, delay: 2, ease: "easeOut" }}
-              onClick={handlePlayClick}
-            >
-              Play
-            </motion.button>
-          </figcaption>
-        </figure>
+          {/* Tombol Play */}
+          <motion.button
+            className="mt-10 bg-orange-400 hover:bg-orange-600 text-white font-semibold py-3 px-6 sm:px-8 rounded-full text-sm sm:text-base"
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 2, ease: "easeOut" }}
+            onClick={handlePlayClick}
+          >
+            Play
+          </motion.button>
+        </div>
       </div>
     </section>
   );

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 import People from "../assets/images/People-Logo.png";
 import Background from "../assets/images/LP-Wallpaper.png";
+import Logo from "../assets/images/Logo-Binus.png";
 
 export default function DecisionPage() {
   const [numPlayers, setNumPlayers] = useState(2);
@@ -19,6 +20,13 @@ export default function DecisionPage() {
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-orange-200 opacity-30"></div>
+
+      {/* Logo di sudut kanan atas */}
+      <img
+        src={Logo}
+        alt="Logo"
+        className="absolute top-4 right-4 h-16 sm:h-20 lg:h-24 w-auto max-w-full"
+      />
 
       {/* Lobby Room Section */}
       <div className="relative flex items-center justify-center h-screen">
