@@ -57,7 +57,7 @@ const Dice3D = ({ isRolling, onRollComplete }) => {
   }, [isRolling, getRandomNumber, controls, onRollComplete]);
 
   const dotClasses = "w-2 h-2 md:w-3 md:h-3 lg:w-4 lg:h-4 bg-white rounded-full";
-  const cubeSize = "w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24";
+  const cubeSize = "w-16 h-16 sm:w-20 sm:h-20 md:w-20 md:h-20 lg:w-24 lg:h-24";
   
   // Fungsi untuk menghitung translateZ berdasarkan ukuran dadu
   const getTranslateZ = () => {
