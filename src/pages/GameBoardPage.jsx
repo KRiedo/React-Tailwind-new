@@ -21,6 +21,7 @@ export default function GameBoardPage() {
   const [players, setPlayers] = useState([]);
   const [currentPlayer, setCurrentPlayer] = useState(0);
   const [isMoving, setIsMoving] = useState(false);
+  const [moveQueue, setMoveQueue] = useState([]);
 
   // Initialize players
   useEffect(() => {
@@ -28,7 +29,6 @@ export default function GameBoardPage() {
     const initialPlayers = Array.from({ length: numPlayers }, (_, index) => ({
       id: index,
       position: 0,
-      targerPosition: 0,
       color: playerColors[index]
     }));
     setPlayers(initialPlayers);
@@ -67,79 +67,97 @@ export default function GameBoardPage() {
     setSquares(newSquares);
   }, []);
 
-  const movePlayerStep = () => {
-    setPlayers(prevPlayers => {
-      const newPlayers = [...prevPlayers].map(player => {
-        // Bergerak selangkah jika belum mencapai target
-        if (player.position < player.targetPosition) {
-          return { 
-            ...player, 
-            position: player.position + 1 
-          };
-        }
-        return player;
-      });
-
-      // Cek apakah semua pemain sudah mencapai target
-      const allPlayersReachedTarget = newPlayers.every(
-        player => player.position === player.targetPosition
-      );
-
-      if (allPlayersReachedTarget) {
-        setIsMoving(false);
-        return newPlayers;
-      }
-
-      return newPlayers;
-    });
+  // Check for snake or ladder at position
+  const checkSnakeOrLadder = (position) => {
+    const snake = snakes.find(s => s.from === position);
+    if (snake) return { type: 'snake', to: snake.to };
+    
+    const ladder = ladders.find(l => l.from === position);
+    if (ladder) return { type: 'ladder', to: ladder.to };
+    
+    return null;
   };
 
-  useEffect(() => {
-    let intervalId;
-    if (isMoving) {
-      intervalId = setInterval(movePlayerStep, 200); // Kecepatan animasi perpindahan
+  // Generate steps between two positions
+  const generateSteps = (from, to) => {
+    const steps = [];
+    if (from < to) {
+      for (let i = from + 1; i <= to; i++) {
+        steps.push(i);
+      }
+    } else {
+      for (let i = from - 1; i >= to; i--) {
+        steps.push(i);
+      }
     }
-    return () => clearInterval(intervalId);
-  }, [isMoving]);
+    return steps;
+  };
+
+  // Process the move queue
+  useEffect(() => {
+    if (moveQueue.length > 0 && !isMoving) {
+      const currentStep = moveQueue[0];
+      setIsMoving(true);
+      
+      // Update player position
+      setPlayers(prevPlayers => {
+        const newPlayers = [...prevPlayers];
+        newPlayers[currentPlayer] = {
+          ...newPlayers[currentPlayer],
+          position: currentStep
+        };
+        return newPlayers;
+      });
+
+      // Remove processed step from queue after animation
+      setTimeout(() => {
+        setMoveQueue(prev => prev.slice(1));
+        setIsMoving(false);
+
+        // If no more moves in queue, check for snake/ladder or move to next player
+        if (moveQueue.length === 1) {
+          const finalPosition = currentStep;
+          const snakeOrLadder = checkSnakeOrLadder(finalPosition);
+          
+          if (snakeOrLadder) {
+            // Directly move to the snake/ladder destination
+            setPlayers(prevPlayers => {
+              const newPlayers = [...prevPlayers];
+              newPlayers[currentPlayer] = {
+                ...newPlayers[currentPlayer],
+                position: snakeOrLadder.to
+              };
+              return newPlayers;
+            });
+            // Move to next player after snake/ladder movement
+            setTimeout(() => {
+              setCurrentPlayer(prev => (prev + 1) % numPlayers);
+            }, 300);
+          } else {
+            // Move to next player
+            setCurrentPlayer(prev => (prev + 1) % numPlayers);
+          }
+        }
+      }, 300);
+    }
+  }, [moveQueue, isMoving, currentPlayer, numPlayers]);
 
   const handleDiceRoll = (roll) => {
-    if (isMoving) return; // Mencegah roll saat masih bergerak
+    if (isMoving || moveQueue.length > 0) return;
 
-    setPlayers(prevPlayers => {
-      const newPlayers = [...prevPlayers];
-      const currentPlayerData = newPlayers[currentPlayer];
-      
-      let newPosition = currentPlayerData.position + roll;
+    const currentPlayerData = players[currentPlayer];
+    let targetPosition = currentPlayerData.position + roll;
 
-      // Cek tangga dan ular
-      snakes.forEach((snake) => {
-        if (snake.from === newPosition) {
-          newPosition = snake.to;
-        }
-      });
-      ladders.forEach((ladder) => {
-        if (ladder.from === newPosition) {
-          newPosition = ladder.to;
-        }
-      });
+    // Ensure we don't exceed 100
+    if (targetPosition > 100) {
+      targetPosition = 100;
+    }
 
-      if (newPosition > 100) newPosition = 100;
-
-      // Set target position dan mulai animasi
-      currentPlayerData.targetPosition = newPosition;
-      setIsMoving(true);
-
-      return newPlayers;
-    });
-
-    // Pindah ke pemain selanjutnya setelah animasi selesai
-    const moveToNextPlayer = () => {
-      setCurrentPlayer((prev) => (prev + 1) % numPlayers);
-      setIsMoving(false);
-    };
-
-    // Hitung waktu animasi berdasarkan jumlah langkah
-    setTimeout(moveToNextPlayer, 200 * (roll + 1));
+    // Generate steps for the normal movement
+    const steps = generateSteps(currentPlayerData.position, targetPosition);
+    
+    // Add steps to queue
+    setMoveQueue(steps);
   };
 
   return (
@@ -151,7 +169,7 @@ export default function GameBoardPage() {
         </div>
         <div className="flex-1 flex justify-center items-center">
           <h2 className="text-3xl md:text-5xl lg:text-7xl flex items-baseline">
-            <span className="font-arsenica font-normal pb-4" style={{ transform: "translateY(-11px)" }} >Accountin</span>
+            <span className="font-arsenica font-normal pb-4" style={{ transform: "translateY(-11px)" }}>Accountin</span>
             <span className="font-arsenica font-medium text-3xl md:text-5xl lg:text-7xl">G</span>
             <span className="font-arsenica font-normal pt-2">et Success</span>
           </h2>
@@ -191,9 +209,10 @@ export default function GameBoardPage() {
       
       {/* Game Controls */}
       <GameControls 
-        onDiceRoll={handleDiceRoll} 
+        onDiceRoll={handleDiceRoll}
         currentPlayer={currentPlayer}
         players={players}
+        disabled={isMoving || moveQueue.length > 0}
       />
     </div>
   );
