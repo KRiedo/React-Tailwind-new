@@ -9,14 +9,13 @@ const Dice3D = ({ isRolling, onRollComplete }) => {
     return Math.floor(Math.random() * 6) + 1;
   }, []);
 
-  // Mapping sisi dadu ke rotasi yang sesuai
   const faceRotations = {
-    1: [0, 0, 0],        // Depan
-    2: [0, -90, 0],      // Kanan
-    3: [90, 0, 0],       // Atas
-    4: [-90, 0, 0],      // Bawah
-    5: [0, 90, 0],       // Kiri
-    6: [0, 180, 0],      // Belakang
+    1: [0, 0, 0],
+    2: [0, -90, 0],
+    3: [90, 0, 0],
+    4: [-90, 0, 0],
+    5: [0, 90, 0],
+    6: [0, 180, 0],
   };
 
   useEffect(() => {
@@ -28,7 +27,6 @@ const Dice3D = ({ isRolling, onRollComplete }) => {
       const finalRoll = getRandomNumber();
       const [finalRotX, finalRotY, finalRotZ] = faceRotations[finalRoll];
 
-      // Menggabungkan animasi rolling dan rotasi akhir dalam satu animasi
       await controls.start({
         rotateX: [0, 720 + finalRotX],
         rotateY: [0, 720 + finalRotY],
@@ -58,72 +56,114 @@ const Dice3D = ({ isRolling, onRollComplete }) => {
     };
   }, [isRolling, getRandomNumber, controls, onRollComplete]);
 
+  const dotClasses = "w-2 h-2 md:w-3 md:h-3 lg:w-4 lg:h-4 bg-white rounded-full";
+  const cubeSize = "w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24";
+  
+  // Fungsi untuk menghitung translateZ berdasarkan ukuran dadu
+  const getTranslateZ = () => {
+    return {
+      small: "1.7rem",   // untuk mobile
+      medium: "2rem", // untuk tablet
+      large: "2.5rem"    // untuk desktop
+    };
+  };
+
+  const translateZ = getTranslateZ();
+
   return (
-    <div className="w-24 h-24 perspective-1000">
+    <div className={`${cubeSize} [perspective:1000px]`}>
       <motion.div
         animate={controls}
-        className="w-full h-full relative transform-style-preserve-3d"
+        className="w-full h-full relative"
         style={{
           transformStyle: "preserve-3d",
         }}
       >
         {/* Face 1 - Front */}
-        <div className="absolute w-full h-full bg-[#B8001F] border-1 border-orange-200 rounded-lg flex items-center justify-center transform-gpu"
-             style={{ transform: 'translateZ(3rem)' }}>
-          <div className="w-4 h-4 bg-white rounded-full"/>
+        <div 
+          className="absolute w-full h-full bg-[#B8001F] border-1 border-orange-200 rounded-lg flex items-center justify-center transform-gpu"
+          style={{ 
+            transform: `translateZ(var(--dice-translate-z, ${translateZ.large}))`,
+            '--dice-translate-z': `clamp(${translateZ.small}, 5vw, ${translateZ.large})`
+          }}
+        >
+          <div className={dotClasses}/>
         </div>
 
         {/* Face 2 - Right */}
-        <div className="absolute w-full h-full bg-[#B8001F] border-1 border-orange-200 rounded-lg flex items-center justify-center transform-gpu"
-             style={{ transform: 'rotateY(90deg) translateZ(3rem)' }}>
+        <div 
+          className="absolute w-full h-full bg-[#B8001F] border-1 border-orange-200 rounded-lg flex items-center justify-center transform-gpu"
+          style={{ 
+            transform: `rotateY(90deg) translateZ(var(--dice-translate-z, ${translateZ.large}))`,
+            '--dice-translate-z': `clamp(${translateZ.small}, 5vw, ${translateZ.large})`
+          }}
+        >
           <div className="flex flex-col justify-between h-3/5">
-            <div className="w-4 h-4 bg-white rounded-full"/>
-            <div className="w-4 h-4 bg-white rounded-full"/>
+            <div className={dotClasses}/>
+            <div className={dotClasses}/>
           </div>
         </div>
 
         {/* Face 3 - Top */}
-        <div className="absolute w-full h-full bg-[#B8001F] border-1 border-orange-200 rounded-lg grid grid-cols gap-2 p-4 ps-9 transform-gpu"
-             style={{ transform: 'rotateX(-90deg) translateZ(3rem)' }}>
-          <div className="w-4 h-4 bg-white rounded-full"/>
-          <div className="w-4 h-4 bg-white rounded-full"/>
-          <div className="w-4 h-4 bg-white rounded-full"/>
+        <div 
+          className="absolute w-full h-full bg-[#B8001F] border-1 border-orange-200 rounded-lg grid grid-cols gap-2 p-3 ss:px-7 sm:px-9 lg:px-10 transform-gpu"
+          style={{ 
+            transform: `rotateX(-90deg) translateZ(var(--dice-translate-z, ${translateZ.large}))`,
+            '--dice-translate-z': `clamp(${translateZ.small}, 5vw, ${translateZ.large})`
+          }}
+        >
+          <div className={dotClasses}/>
+          <div className={dotClasses}/>
+          <div className={dotClasses}/>
         </div>
 
         {/* Face 4 - Bottom */}
-        <div className="absolute w-full h-full bg-[#B8001F] border-1 border-orange-200 rounded-lg grid grid-cols-2 gap-2 p-6 transform-gpu"
-             style={{ transform: 'rotateX(90deg) translateZ(3rem)' }}>
-          <div className="w-4 h-4 bg-white rounded-full"/>
-          <div className="w-4 h-4 bg-white rounded-full"/>
-          <div className="w-4 h-4 bg-white rounded-full"/>
-          <div className="w-4 h-4 bg-white rounded-full"/>
+        <div 
+          className="absolute w-full h-full bg-[#B8001F] border-1 border-orange-200 rounded-lg grid grid-cols-2 gap-5 p-3 ss:pt-4 ps-4 sm:ps-5 sm:pt-5 lg:px-5 transform-gpu"
+          style={{ 
+            transform: `rotateX(90deg) translateZ(var(--dice-translate-z, ${translateZ.large}))`,
+            '--dice-translate-z': `clamp(${translateZ.small}, 5vw, ${translateZ.large})`
+          }}
+        >
+          <div className={dotClasses}/>
+          <div className={dotClasses}/>
+          <div className={dotClasses}/>
+          <div className={dotClasses}/>
         </div>
 
         {/* Face 5 - Left */}
-        <div className="absolute w-full h-full bg-[#B8001F] border-1 border-orange-200 rounded-lg ps-1 transform-gpu"
-             style={{ transform: 'rotateY(-90deg) translateZ(3rem)' }}>
-          <div className="w-full h-full grid grid-cols-3 grid-rows-3 p-4">
-            <div className="w-4 h-4 bg-white rounded-full"/>
-            <div className="w-4 h-4 bg-white rounded-full invisible"/>
-            <div className="w-4 h-4 bg-white rounded-full"/>
-            <div className="w-4 h-4 bg-white rounded-full invisible"/>
-            <div className="w-4 h-4 bg-white rounded-full"/>
-            <div className="w-4 h-4 bg-white rounded-full invisible"/>
-            <div className="w-4 h-4 bg-white rounded-full"/>
-            <div className="w-4 h-4 bg-white rounded-full invisible"/>
-            <div className="w-4 h-4 bg-white rounded-full"/>
-          </div>
+        <div 
+          className="absolute w-full h-full bg-[#B8001F] border-1 border-orange-200 rounded-lg grid grid-cols-3 ss:grid-rows-3 ss:gap-4 grid-rows-2 p-4 ss:p-3 ss:px-1 ss:pt-2 lg:px-3 transform-gpu"
+          style={{ 
+            transform: `rotateY(-90deg) translateZ(var(--dice-translate-z, ${translateZ.large}))`,
+            '--dice-translate-z': `clamp(${translateZ.small}, 5vw, ${translateZ.large})`
+          }}
+        >
+          <div className={dotClasses}/>
+            <div className={`${dotClasses} invisible`}/>
+            <div className={dotClasses}/>
+            <div className={`${dotClasses} invisible`}/>
+            <div className={dotClasses}/>
+            <div className={`${dotClasses} invisible`}/>
+            <div className={dotClasses}/>
+            <div className={`${dotClasses} invisible`}/>
+            <div className={dotClasses}/>
         </div>
 
         {/* Face 6 - Back */}
-        <div className="absolute w-full h-full bg-[#B8001F] border-1 border-orange-200 rounded-lg grid grid-cols-2 gap-2 p-6 pt-4 transform-gpu"
-             style={{ transform: 'rotateY(180deg) translateZ(3rem)' }}>
-          <div className="w-4 h-4 bg-white rounded-full"/>
-          <div className="w-4 h-4 bg-white rounded-full"/>
-          <div className="w-4 h-4 bg-white rounded-full"/>
-          <div className="w-4 h-4 bg-white rounded-full"/>
-          <div className="w-4 h-4 bg-white rounded-full"/>
-          <div className="w-4 h-4 bg-white rounded-full"/>
+        <div 
+          className="absolute w-full h-full bg-[#B8001F] border-1 border-orange-200 rounded-lg grid grid-cols-2 gap-2 p-3 ss:px-5 sm:px-6 lg:px-7 transform-gpu"
+          style={{ 
+            transform: `rotateY(180deg) translateZ(var(--dice-translate-z, ${translateZ.large}))`,
+            '--dice-translate-z': `clamp(${translateZ.small}, 5vw, ${translateZ.large})`
+          }}
+        >
+          <div className={dotClasses}/>
+          <div className={dotClasses}/>
+          <div className={dotClasses}/>
+          <div className={dotClasses}/>
+          <div className={dotClasses}/>
+          <div className={dotClasses}/>
         </div>
       </motion.div>
     </div>
