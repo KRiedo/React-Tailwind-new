@@ -12,6 +12,9 @@ export default {
         workSans: ['"Work Sans"', 'sans-serif'],
         bungee: ['"Bungee Spice"', 'sans-serif'],
       },
+      screens: {
+        ss: '375px',
+      },
     },
   },
   plugins: [],

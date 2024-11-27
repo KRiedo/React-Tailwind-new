@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import GameBoard from "../components/GameBoard/GameBoard";
 import GameControls from "../components/GameBoard/GameControls";
+
 import BlackSnake from "../assets/images/Black-Snake.png";
 import BlueSnake from "../assets/images/Blue-Snake.png";
 import BrownSnake from "../assets/images/Brown-Snake.png";
@@ -12,8 +14,25 @@ import RightLadder from "../assets/images/Right-Ladder.png";
 import BinusLogo from "../assets/images/Logo-Binus.png";
 
 export default function GameBoardPage() {
+  const location = useLocation();
+  const numPlayers = location.state?.numPlayers || 2;
+  
   const [squares, setSquares] = useState([]);
-  const [playerPosition, setPlayerPosition] = useState(1);
+  const [players, setPlayers] = useState([]);
+  const [currentPlayer, setCurrentPlayer] = useState(0);
+  const [isMoving, setIsMoving] = useState(false);
+
+  // Initialize players
+  useEffect(() => {
+    const playerColors = ['#FF5733', '#33FF57', '#3357FF', '#FF33F6'];
+    const initialPlayers = Array.from({ length: numPlayers }, (_, index) => ({
+      id: index,
+      position: 0,
+      targerPosition: 0,
+      color: playerColors[index]
+    }));
+    setPlayers(initialPlayers);
+  }, [numPlayers]);
 
   const snakes = [
     { from: 99, to: 62, image: BlackSnake, x: 80, y: 5, width: 200, height: 200, rotation: 300, zIndex: 1 },
@@ -48,25 +67,79 @@ export default function GameBoardPage() {
     setSquares(newSquares);
   }, []);
 
+  const movePlayerStep = () => {
+    setPlayers(prevPlayers => {
+      const newPlayers = [...prevPlayers].map(player => {
+        // Bergerak selangkah jika belum mencapai target
+        if (player.position < player.targetPosition) {
+          return { 
+            ...player, 
+            position: player.position + 1 
+          };
+        }
+        return player;
+      });
+
+      // Cek apakah semua pemain sudah mencapai target
+      const allPlayersReachedTarget = newPlayers.every(
+        player => player.position === player.targetPosition
+      );
+
+      if (allPlayersReachedTarget) {
+        setIsMoving(false);
+        return newPlayers;
+      }
+
+      return newPlayers;
+    });
+  };
+
+  useEffect(() => {
+    let intervalId;
+    if (isMoving) {
+      intervalId = setInterval(movePlayerStep, 200); // Kecepatan animasi perpindahan
+    }
+    return () => clearInterval(intervalId);
+  }, [isMoving]);
+
   const handleDiceRoll = (roll) => {
-    let newPosition = playerPosition + roll;
+    if (isMoving) return; // Mencegah roll saat masih bergerak
 
-    // Check snakes and ladders
-    snakes.forEach((snake) => {
-      if (snake.from === newPosition) {
-        newPosition = snake.to;
-      }
+    setPlayers(prevPlayers => {
+      const newPlayers = [...prevPlayers];
+      const currentPlayerData = newPlayers[currentPlayer];
+      
+      let newPosition = currentPlayerData.position + roll;
+
+      // Cek tangga dan ular
+      snakes.forEach((snake) => {
+        if (snake.from === newPosition) {
+          newPosition = snake.to;
+        }
+      });
+      ladders.forEach((ladder) => {
+        if (ladder.from === newPosition) {
+          newPosition = ladder.to;
+        }
+      });
+
+      if (newPosition > 100) newPosition = 100;
+
+      // Set target position dan mulai animasi
+      currentPlayerData.targetPosition = newPosition;
+      setIsMoving(true);
+
+      return newPlayers;
     });
-    ladders.forEach((ladder) => {
-      if (ladder.from === newPosition) {
-        newPosition = ladder.to;
-      }
-    });
 
-    // Prevent overflow past 100
-    if (newPosition > 100) newPosition = 100;
+    // Pindah ke pemain selanjutnya setelah animasi selesai
+    const moveToNextPlayer = () => {
+      setCurrentPlayer((prev) => (prev + 1) % numPlayers);
+      setIsMoving(false);
+    };
 
-    setPlayerPosition(newPosition);
+    // Hitung waktu animasi berdasarkan jumlah langkah
+    setTimeout(moveToNextPlayer, 200 * (roll + 1));
   };
 
   return (
@@ -102,7 +175,7 @@ export default function GameBoardPage() {
           squares={squares}
           snakes={snakes}
           ladders={ladders}
-          playerPosition={playerPosition}
+          players={players}
         />
         
         {/* Right Sidebar */}
@@ -117,7 +190,11 @@ export default function GameBoardPage() {
       </div>
       
       {/* Game Controls */}
-      <GameControls onDiceRoll={handleDiceRoll} />
+      <GameControls 
+        onDiceRoll={handleDiceRoll} 
+        currentPlayer={currentPlayer}
+        players={players}
+      />
     </div>
   );
 }

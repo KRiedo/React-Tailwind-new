@@ -10,7 +10,7 @@ export default function DecisionPage() {
 
   const handleStartGame = () => {
     // Navigate to the GameBoardPage when the button is clicked
-    navigate("/board");
+    navigate("/board", { state: { numPlayers } });
   };
 
   return (
