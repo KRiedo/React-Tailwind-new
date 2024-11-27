@@ -1,18 +1,18 @@
 import React, { useState, useCallback } from "react";
 import Dice3D from "./Dice";
 
-const GameControls = ({ onDiceRoll }) => {
+const GameControls = ({ onDiceRoll, disabled }) => {
   const [message, setMessage] = useState("");
   const [isDiceRolling, setIsDiceRolling] = useState(false);
   const [rollCount, setRollCount] = useState(0);
 
   const handleRollDice = useCallback(() => {
-    if (!isDiceRolling) {
+    if (!isDiceRolling && !disabled) {
       setIsDiceRolling(true);
       setMessage("");
       setRollCount((prev) => prev + 1);
     }
-  }, [isDiceRolling]);
+  }, [isDiceRolling, disabled]);
 
   const handleRollComplete = useCallback(
     (roll) => {
@@ -45,7 +45,13 @@ const GameControls = ({ onDiceRoll }) => {
               )}
             </div>
 
-            <button onClick={handleRollDice} disabled={isDiceRolling} className={`px-6 py-3 text-white rounded-lg shadow transition-colors duration-200 ${isDiceRolling ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"}`}>
+            <button 
+              onClick={handleRollDice} 
+              disabled={isDiceRolling || disabled} 
+              className={`px-6 py-3 text-white rounded-lg shadow transition-colors duration-200 ${
+                isDiceRolling || disabled ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
+              }`}
+            >
               {isDiceRolling ? "Rolling..." : "Roll Dice"}
             </button>
           </div>
