@@ -163,7 +163,7 @@ export default function GameBoardPage() {
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#fff4ea" }}>
       {/* Header Section */}
-      <div className="w-full p-2 flex items-center">
+      <div className="w-full p-2 flex items-center relative">
         <div className="w-16 md:w-32 lg:w-48">
           <img src={BinusLogo} alt="Snake and Ladders" className="w-full" />
         </div>
@@ -173,6 +173,20 @@ export default function GameBoardPage() {
             <span className="font-arsenica font-medium text-3xl md:text-5xl lg:text-7xl">G</span>
             <span className="font-arsenica font-normal pt-2">et Success</span>
           </h2>
+        </div>
+
+        {/* Current Player Indicator */}
+        <div className="absolute top-4 ss:top-14 sm:top-18 md:top-20 right-4 bg-white shadow-md rounded-lg p-3">
+          <div className="flex items-center">
+            <span className="mr-2 font-medium">Current Player:</span>
+            <div 
+              className="w-6 h-6 rounded-full" 
+              style={{ 
+                backgroundColor: players[currentPlayer]?.color || '#FF5733',
+                boxShadow: '0 0 10px rgba(0,0,0,0.3)'
+              }}
+            />
+          </div>
         </div>
       </div>
 
