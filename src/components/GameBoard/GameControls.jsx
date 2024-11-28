@@ -1,16 +1,18 @@
 import React, { useState, useCallback } from "react";
 import Dice3D from "./Dice";
 
-const GameControls = ({ onDiceRoll, disabled }) => {
+const GameControls = ({ onDiceRoll, disabled, currentPlayer, players }) => {
   const [message, setMessage] = useState("");
   const [isDiceRolling, setIsDiceRolling] = useState(false);
   const [rollCount, setRollCount] = useState(0);
+  const [showDiceButton, setShowDiceButton] = useState(true);
 
   const handleRollDice = useCallback(() => {
     if (!isDiceRolling && !disabled) {
       setIsDiceRolling(true);
       setMessage("");
       setRollCount((prev) => prev + 1);
+      setShowDiceButton(false);
     }
   }, [isDiceRolling, disabled]);
 
@@ -23,6 +25,10 @@ const GameControls = ({ onDiceRoll, disabled }) => {
         if (onDiceRoll) {
           onDiceRoll(roll);
         }
+        // Reshow dice button after a short delay
+        setTimeout(() => {
+          setShowDiceButton(true);
+        }, 300);
       }, 500);
     },
     [onDiceRoll]
@@ -31,7 +37,7 @@ const GameControls = ({ onDiceRoll, disabled }) => {
   return (
     <div className="fixed bottom-0 left-0 w-full">
       <div className="relative">
-        <div className="absolute bottom-24 left-[25%] -translate-x-1/2">
+        <div className="absolute bottom-20 left-[25%] -translate-x-1/2">
           <Dice3D isRolling={isDiceRolling} onRollComplete={handleRollComplete} key={`dice-${rollCount}`} />
         </div>
 
@@ -45,15 +51,17 @@ const GameControls = ({ onDiceRoll, disabled }) => {
               )}
             </div>
 
-            <button 
-              onClick={handleRollDice} 
-              disabled={isDiceRolling || disabled} 
-              className={`px-6 py-3 text-white rounded-lg shadow transition-colors duration-200 ${
-                isDiceRolling || disabled ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
-              }`}
-            >
-              {isDiceRolling ? "Rolling..." : "Roll Dice"}
-            </button>
+            {showDiceButton && (
+              <button 
+                onClick={handleRollDice} 
+                disabled={isDiceRolling || disabled} 
+                className={`px-6 py-3 text-white rounded-lg shadow transition-colors duration-200 ${
+                  isDiceRolling || disabled ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
+                }`}
+              >
+                {isDiceRolling ? "Rolling..." : "Roll Dice"}
+              </button>
+            )}
           </div>
         </div>
       </div>

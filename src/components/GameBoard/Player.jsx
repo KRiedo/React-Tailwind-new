@@ -20,8 +20,8 @@ const PlayerPiece = ({ position, color, index, totalPlayers }) => {
     // Jika posisi 0, kembalikan koordinat awal
     if (position === 0) {
       return {
-        x: 60,  // Kolom pertama
-        y: 560  // Baris terakhir
+        x: -20,  // Kolom pertama
+        y: 532  // Baris terakhir
       };
     }
 
