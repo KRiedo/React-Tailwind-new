@@ -1,5 +1,6 @@
 [
   {
+    "type": "question",
     "question": "Decrease of Utilities Expense",
     "correctAnswer": "debit",
     "reward": {
@@ -14,9 +15,21 @@
     }
   },
   {
-    "question": "Membantu perusahaan dalam mengungkap kecurangan yang terjadi, sehingga diberikan promosi. Mendapat reward maju 18 langkah"
+    "type": "event",
+    "question": "Membantu perusahaan dalam mengungkap kecurangan yang terjadi, sehingga diberikan promosi. Mendapat reward maju 18 langkah",
+    "reward": {
+      "correct": {
+        "steps": 18,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": 0,
+        "stun": 0
+      }
+    }
   },
   {
+    "type": "question",
     "question": "Increase of Travelling Expense",
     "correctAnswer": "debit",
     "reward": {
@@ -31,6 +44,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Decrease of of Delivery Expense",
     "correctAnswer": "credit",
     "reward": {
@@ -45,6 +59,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Decrease of Advertising Expense",
     "correctAnswer": "credit",
     "reward": {
@@ -59,6 +74,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase of Retained Earnings",
     "correctAnswer": "credit",
     "reward": {
@@ -73,6 +89,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Decrease of Depreciation Expense",
     "correctAnswer": "credit",
     "reward": {
@@ -87,6 +104,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase of Supplies Expense",
     "correctAnswer": "debit",
     "reward": {
@@ -101,6 +119,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase of Maintenance Expense",
     "correctAnswer": "debit",
     "reward": {
@@ -115,6 +134,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Decrease of Training Expense",
     "correctAnswer": "credit",
     "reward": {

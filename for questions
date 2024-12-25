@@ -1,0 +1,233 @@
+[33mcommit ea8ac77f7091007231fe437ab5915b3eb1a0dc77[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mjek-code[m[33m, [m[1;31morigin/jek-code[m[33m)[m
+Author: Jauzack Falah Arassy <jauzack.arassy@binus.ac.id>
+Date:   Thu Nov 28 10:19:29 2024 +0700
+
+    Add all JSON files for Question Card
+
+[33mcommit c91164a291e73d612c17f72ec53b94df8b122f15[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: d0b9e53 fdd937b
+Author: KRiedo <kevin.riedo@binus.ac.id>
+Date:   Wed Nov 27 22:13:33 2024 +0700
+
+    Merge pull request #9 from KRiedo/kevin-code
+    
+    Final Update - Kevin
+
+[33mcommit fdd937b387e8679b5f5d6cae427679704088691b[m[33m ([m[1;31morigin/kevin-code[m[33m)[m
+Author: KRiedo <kevin.riedo@binus.ac.id>
+Date:   Wed Nov 27 22:13:05 2024 +0700
+
+    Final Update - Kevin
+
+[33mcommit d0b9e536db41ed50ce841b36dc4a41e61562e300[m
+Merge: 1ed4025 f448e11
+Author: KRiedo <kevin.riedo@binus.ac.id>
+Date:   Wed Nov 27 16:17:46 2024 +0700
+
+    Merge pull request #8 from KRiedo/kevin-code
+    
+    Super Final Update
+
+[33mcommit f448e11fd808d3fe07e0259e104b2b0ea20668c0[m
+Author: KRiedo <kevin.riedo@binus.ac.id>
+Date:   Wed Nov 27 16:17:03 2024 +0700
+
+    Final Update With Dice and Player
+
+[33mcommit 19e1b5a4429ef327efd0828df4df4a755b3cc362[m
+Author: KRiedo <kevin.riedo@binus.ac.id>
+Date:   Wed Nov 27 15:16:56 2024 +0700
+
+    Dice Final Update
+
+[33mcommit 1ed4025bce82ae8c9c4d11c03f01fb69558e3198[m
+Merge: 642a2b2 5017772
+Author: KRiedo <kevin.riedo@binus.ac.id>
+Date:   Wed Nov 27 00:59:07 2024 +0700
+
+    Merge pull request #7 from KRiedo/kevin-code
+    
+    Dice Update Final
+
+[33mcommit 501777240fcc95df5cf0d9ad7e919c5812baa92c[m
+Author: KRiedo <kevin.riedo@binus.ac.id>
+Date:   Wed Nov 27 00:58:32 2024 +0700
+
+    Dice Update Final
+
+[33mcommit 642a2b2252c89d1213b65691a03d748d342f3e6b[m
+Merge: 1217c7d 98e26ca
+Author: Jauzack FA <93526700+JauzackFA@users.noreply.github.com>
+Date:   Tue Nov 26 22:30:43 2024 +0700
+
+    Merge pull request #6 from KRiedo/jek-code
+    
+    Dice without animation
+
+[33mcommit 98e26ca848beccddfaaa9f861f44b7befdbd5485[m
+Author: Jauzack Falah Arassy <jauzack.arassy@binus.ac.id>
+Date:   Tue Nov 26 22:29:22 2024 +0700
+
+    Dice without animation
+
+[33mcommit 1217c7d1d416e498a7139d95279045731f03a1bf[m
+Merge: a148152 3e1c2d1
+Author: KRiedo <kevin.riedo@binus.ac.id>
+Date:   Tue Nov 26 19:12:43 2024 +0700
+
+    Merge pull request #5 from KRiedo/kevin-code
+    
+    Kevin code
+
+[33mcommit 3e1c2d1dc1e6b78cc81d2f2d0865bd0cf07169cd[m
+Author: KRiedo <kevin.riedo@binus.ac.id>
+Date:   Tue Nov 26 19:11:57 2024 +0700
+
+    Dice-Still-Error
+
+[33mcommit 869b8e56c30d76c917ee6de9b5848a4d6a8bab50[m
+Author: KRiedo <kevin.riedo@binus.ac.id>
+Date:   Tue Nov 26 15:44:26 2024 +0700
+
+    Revert "Dice-Test"
+    
+    This reverts commit 9e11a92b0e9ed7b831e649222e3c33d2b74b8aa2.
+
+[33mcommit 9e11a92b0e9ed7b831e649222e3c33d2b74b8aa2[m
+Author: KRiedo <kevin.riedo@binus.ac.id>
+Date:   Tue Nov 26 15:37:51 2024 +0700
+
+    Dice-Test
+
+[33mcommit 89e3f49382c8f7c2f8268476f415a2ece5eb6da7[m
+Author: KRiedo <kevin.riedo@binus.ac.id>
+Date:   Tue Nov 26 14:46:27 2024 +0700
+
+    Update Background dan Responsive
+
+[33mcommit a148152c46a7859b209f281537485cb30f639acb[m
+Merge: 35ec361 cc71ea9
+Author: Jauzack FA <93526700+JauzackFA@users.noreply.github.com>
+Date:   Mon Nov 25 20:23:29 2024 +0700
+
+    Merge pull request #4 from KRiedo/jek-code
+    
+    Perubahan README.md
+
+[33mcommit cc71ea9ce5b01b0d78577975f5ce33ac4f50a9e5[m
+Author: Jauzack Falah Arassy <jauzack.arassy@binus.ac.id>
+Date:   Mon Nov 25 20:22:35 2024 +0700
+
+    Perubahan README.md
+
+[33mcommit 35ec3610aadeb723424dac88f2462dd2bcfb8672[m
+Merge: 16b4c35 9ae114b
+Author: KRiedo <kevin.riedo@binus.ac.id>
+Date:   Mon Nov 25 17:43:14 2024 +0700
+
+    Merge pull request #3 from KRiedo/kevin-code
+    
+    Update LandingPage.jsx
+
+[33mcommit 9ae114be081c777dd24f52ddbee778cea8e8a923[m
+Author: KRiedo <kevin.riedo@binus.ac.id>
+Date:   Mon Nov 25 17:42:24 2024 +0700
+
+    Update LandingPage.jsx
+
+[33mcommit 16b4c354713b747c709c0de916845763ef07e766[m
+Merge: ea1f122 932c250
+Author: KRiedo <kevin.riedo@binus.ac.id>
+Date:   Mon Nov 25 17:40:53 2024 +0700
+
+    Merge pull request #2 from KRiedo/kevin-code
+    
+    Kevin code
+
+[33mcommit 932c2506da295ffadfcba408c2cbc34cacfdb34a[m
+Author: KRiedo <kevin.riedo@binus.ac.id>
+Date:   Mon Nov 25 17:38:01 2024 +0700
+
+    Perubahan Code
+
+[33mcommit fa33465e407c7f19ea9d93fedccea75e596bbffd[m
+Author: KRiedo <kevin.riedo@binus.ac.id>
+Date:   Mon Nov 25 17:36:08 2024 +0700
+
+    Push
+
+[33mcommit 1eab1483e40656187a7bbf38d831a044d113df36[m
+Merge: 735afc1 ea1f122
+Author: KRiedo <kevin.riedo@binus.ac.id>
+Date:   Mon Nov 25 17:35:51 2024 +0700
+
+    Merge branch 'main' of https://github.com/KRiedo/React-Tailwind-new into kevin-code
+
+[33mcommit ea1f1229b0659d830788710d78a2ae953534ba75[m
+Merge: 1c3602e 910f95a
+Author: Jauzack FA <93526700+JauzackFA@users.noreply.github.com>
+Date:   Mon Nov 25 17:27:18 2024 +0700
+
+    Merge pull request #1 from KRiedo/jek-code
+    
+    Perubahan README.md
+
+[33mcommit 910f95ab0b398b6e3dde6b9ec5d6dba13fe49286[m
+Author: Jauzack Falah Arassy <jauzack.arassy@binus.ac.id>
+Date:   Mon Nov 25 17:25:44 2024 +0700
+
+    Perubahan README.md
+
+[33mcommit 735afc1b49cb26c02d8aa97aecff83c380924695[m
+Author: KRiedo <kevin.riedo@binus.ac.id>
+Date:   Mon Nov 25 17:20:46 2024 +0700
+
+    LandingPage Recov
+
+[33mcommit 1c3602ea8b8625a81c9ca63564c9aa650900aeb5[m[33m ([m[1;32mmain[m[33m)[m
+Author: Jauzack Falah Arassy <jauzack.arassy@binus.ac.id>
+Date:   Mon Nov 25 17:09:29 2024 +0700
+
+    Update adds information to the README.md
+
+[33mcommit 04ebf9e91bf0c162cde77a65acbb5fa6735ab65e[m
+Author: KRiedo <kevin.riedo@binus.ac.id>
+Date:   Mon Nov 25 16:33:32 2024 +0700
+
+    Update GameBoard
+
+[33mcommit cc3710f78b44f3fd1b716fdecc96865a84ce2784[m
+Author: KRiedo <kevin.riedo@binus.ac.id>
+Date:   Mon Nov 25 15:55:37 2024 +0700
+
+    add new component
+
+[33mcommit f5d0cb61871bb5e2ca4182a5d112eb21c3fbb0c6[m
+Author: KRiedo <kevin.riedo@binus.ac.id>
+Date:   Sun Nov 24 22:14:38 2024 +0700
+
+    GameBoardPage trial
+
+[33mcommit 60bfb75a5663f66ee3957d2f36b89cd7ed805bb4[m
+Author: KRiedo <kevin.riedo@binus.ac.id>
+Date:   Sun Nov 24 20:04:03 2024 +0700
+
+    Board Game Check
+
+[33mcommit 5ecf38ac58d2b36f99be931a6e0922c94d048c85[m
+Author: KRiedo <kevin.riedo@binus.ac.id>
+Date:   Sun Nov 24 18:48:53 2024 +0700
+
+    Folder CLeaning
+
+[33mcommit 788f5bcef737854231a0afa8d879baf1f2773bd1[m
+Author: KRiedo <kevin.riedo@binus.ac.id>
+Date:   Sun Nov 24 18:41:42 2024 +0700
+
+    Game Board Responsive Fix
+
+[33mcommit a8119492e4802ffdac097b0268310190d2859dde[m
+Author: KRiedo <kevin.riedo@binus.ac.id>
+Date:   Sun Nov 24 00:04:40 2024 +0700
+
+    Initial commit

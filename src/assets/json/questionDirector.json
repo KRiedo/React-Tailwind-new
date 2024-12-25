@@ -1,5 +1,6 @@
 [
   {
+    "type": "question",
     "question": "Increase of Franchise's Company",
     "correctAnswer": "debit",
     "reward": {
@@ -14,6 +15,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Decrease of Copyright's Company",
     "correctAnswer": "credit",
     "reward": {
@@ -28,9 +30,21 @@
     }
   },
   {
-    "question": "Anda tertangkap basah merubah secara sengaja data keuangan, dikenakan sanksi mundur 19 langkah."
+    "type": "event",
+    "question": "Anda tertangkap basah merubah secara sengaja data keuangan, dikenakan sanksi mundur 19 langkah.",
+    "reward": {
+      "correct": {
+        "steps": 0,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": -37,
+        "stun": 0
+      }
+    }
   },
   {
+    "type": "question",
     "question": "Increase of Current Maturities of Lease",
     "correctAnswer": "credit",
     "reward": {
@@ -45,6 +59,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Decrease of Maturities of Obligations",
     "correctAnswer": "debit",
     "reward": {
@@ -59,6 +74,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Decrease of Witholding Taxes Payable",
     "correctAnswer": "debit",
     "reward": {
@@ -73,6 +89,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Decrease of Premium Liability",
     "correctAnswer": "debit",
     "reward": {
@@ -87,6 +104,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase of Contigency Liability",
     "correctAnswer": "credit",
     "reward": {
@@ -101,9 +119,21 @@
     }
   },
   {
-    "question": "Anda tidak berhasil memenuhi deadline, sehingga dikenakan sanksi untuk mundur 37 langkah"
+    "type": "event",
+    "question": "Anda tidak berhasil memenuhi deadline, sehingga dikenakan sanksi untuk mundur 37 langkah",
+    "reward": {
+      "correct": {
+        "steps": 0,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": -37,
+        "stun": 0
+      }
+    }
   },
   {
+    "type": "question",
     "question": "Increase in Inventory Obsolence Expense",
     "correctAnswer": "debit",
     "reward": {

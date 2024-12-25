@@ -1,5 +1,6 @@
 [
   {
+    "type": "question",
     "question": "Decrease of Raw Materials",
     "correctAnswer": "credit",
     "reward": {
@@ -14,6 +15,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase of Direct Materials",
     "correctAnswer": "debit",
     "reward": {
@@ -28,6 +30,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase of Prepaid Advertising",
     "correctAnswer": "debit",
     "reward": {
@@ -42,6 +45,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase of Prepaid Expenses",
     "correctAnswer": "debit",
     "reward": {
@@ -56,6 +60,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Decrease of Prepaid Salary",
     "correctAnswer": "credit",
     "reward": {
@@ -70,9 +75,21 @@
     }
   },
   {
-    "question": "Menipu atasan Anda dengan memberikan keterangan palsu dalam laporan keuangan sehingga mendapat hukuman mundur 34 langkah"
+    "type": "event",
+    "question": "Menipu atasan Anda dengan memberikan keterangan palsu dalam laporan keuangan sehingga mendapat hukuman mundur 34 langkah",
+    "reward": {
+      "correct": {
+        "steps": 0,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": -34,
+        "stun": 0
+      }
+    }
   },
   {
+    "type": "question",
     "question": "Decrease of Prepaid Rent",
     "correctAnswer": "credit",
     "reward": {
@@ -87,6 +104,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase of Work in Process",
     "correctAnswer": "debit",
     "reward": {
@@ -101,6 +119,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase of Finished Goods",
     "correctAnswer": "debit",
     "reward": {
@@ -115,6 +134,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Decrease of Debt Investments",
     "correctAnswer": "credit",
     "reward": {
