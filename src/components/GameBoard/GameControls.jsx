@@ -1,20 +1,20 @@
 import React, { useState, useCallback } from "react";
 import Dice3D from "./Dice";
 
-const GameControls = ({ onDiceRoll, disabled, currentPlayer, players }) => {
+const GameControls = ({ onDiceRoll, disabled, currentPlayer, players, isQuestionActive }) => {
   const [message, setMessage] = useState("");
   const [isDiceRolling, setIsDiceRolling] = useState(false);
   const [rollCount, setRollCount] = useState(0);
   const [showDiceButton, setShowDiceButton] = useState(true);
 
   const handleRollDice = useCallback(() => {
-    if (!isDiceRolling && !disabled) {
+    if (!isDiceRolling && !disabled && !isQuestionActive) {
       setIsDiceRolling(true);
       setMessage("");
       setRollCount((prev) => prev + 1);
       setShowDiceButton(false);
     }
-  }, [isDiceRolling, disabled]);
+  }, [isDiceRolling, disabled, isQuestionActive]);
 
   const handleRollComplete = useCallback(
     (roll) => {
@@ -52,12 +52,10 @@ const GameControls = ({ onDiceRoll, disabled, currentPlayer, players }) => {
             </div>
 
             {showDiceButton && (
-              <button 
-                onClick={handleRollDice} 
-                disabled={isDiceRolling || disabled} 
-                className={`px-6 py-3 text-white rounded-lg shadow transition-colors duration-200 ${
-                  isDiceRolling || disabled ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
-                }`}
+              <button
+                onClick={handleRollDice}
+                disabled={isDiceRolling || disabled || isQuestionActive} // Nonaktifkan tombol jika pertanyaan aktif
+                className={`px-6 py-3 text-white rounded-lg shadow transition-colors duration-200 ${isDiceRolling || disabled || isQuestionActive ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"}`}
               >
                 {isDiceRolling ? "Rolling..." : "Roll Dice"}
               </button>
