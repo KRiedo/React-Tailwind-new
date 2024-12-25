@@ -78,16 +78,28 @@
     "type": "event",
     "question": "Menghilangkan data keuangan perusahaan yang berakibat kerugian bagi perusahaan.",
     "reward": {
-      "steps": -18,
-      "stun": 1
+      "correct": {
+        "steps": 0,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": -34,
+        "stun": 0
+      }
     }
   },
   {
     "type": "event",
     "question": "Mendapatkan bonus atas keberhasilan menyelesaikan proyek keuangan perusahaan, dipromosikan sebagai senior associate 2.",
     "reward": {
-      "steps": 5,
-      "stun": 0
+      "correct": {
+        "steps": 34,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": 0,
+        "stun": 0
+      }
     }
   },
   {

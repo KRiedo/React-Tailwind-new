@@ -1,5 +1,6 @@
 [
   {
+    "type": "question",
     "question": "Increase in Share Capital - Premium",
     "correctAnswer": "credit",
     "reward": {
@@ -14,6 +15,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase in Gain on Sale of Fixed Asset",
     "correctAnswer": "credit",
     "reward": {
@@ -28,6 +30,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase of Goodwill's Company",
     "correctAnswer": "debit",
     "reward": {
@@ -42,6 +45,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Decrease in Sales Tax Payable",
     "correctAnswer": "debit",
     "reward": {
@@ -56,6 +60,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase in Customer Deposits",
     "correctAnswer": "credit",
     "reward": {
@@ -70,6 +75,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Decrease in Warranty Liability",
     "correctAnswer": "credit",
     "reward": {
@@ -84,6 +90,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase in Unearned Warranty Revenue",
     "correctAnswer": "credit",
     "reward": {
@@ -98,6 +105,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Decrease in Treasury Shares",
     "correctAnswer": "credit",
     "reward": {
@@ -112,6 +120,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase in Loss on Sales of Fixed Assets",
     "correctAnswer": "debit",
     "reward": {
@@ -126,6 +135,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Decrease in Prepaid Sales Tax",
     "correctAnswer": "credit",
     "reward": {
@@ -140,6 +150,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Decrease of Trademark's Company",
     "correctAnswer": "credit",
     "reward": {

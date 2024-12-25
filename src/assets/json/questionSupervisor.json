@@ -1,5 +1,6 @@
 [
   {
+    "type": "question",
     "question": "Increase of Other Expense",
     "correctAnswer": "debit",
     "reward": {
@@ -14,6 +15,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase of Other Revenue",
     "correctAnswer": "credit",
     "reward": {
@@ -28,9 +30,21 @@
     }
   },
   {
-    "question": "Anda mendapatkan bonus dari atasan, maju 16 langkah"
+    "type": "event",
+    "question": "Anda mendapatkan bonus dari atasan, maju 16 langkah",
+    "reward": {
+      "correct": {
+        "steps": 16,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": 0,
+        "stun": 0
+      }
+    }
   },
   {
+    "type": "question",
     "question": "Decrease of Unearned Sales Revenue",
     "correctAnswer": "debit",
     "reward": {
@@ -45,9 +59,21 @@
     }
   },
   {
-    "question": "Ditemukan eror atas analisis data yang mengakibatkan kesalahan dalam mengambil keputusan, sehingga dikenakan sanksi mundur 18 langkah dan stun 1 putaran"
+    "type": "event",
+    "question": "Ditemukan eror atas analisis data yang mengakibatkan kesalahan dalam mengambil keputusan, sehingga dikenakan sanksi mundur 18 langkah dan stun 1 putaran",
+    "reward": {
+      "correct": {
+        "steps": 0,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": -18,
+        "stun": 1
+      }
+    }
   },
   {
+    "type": "question",
     "question": "Decrease of Sales & Wages Payable",
     "correctAnswer": "debit",
     "reward": {
@@ -62,6 +88,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase of Fences",
     "correctAnswer": "debit",
     "reward": {
@@ -76,6 +103,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Decrease of Share Investments",
     "correctAnswer": "credit",
     "reward": {
@@ -90,6 +118,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Decrease of Notes Payable",
     "correctAnswer": "credit",
     "reward": {
@@ -104,6 +133,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase of Customer Subscription",
     "correctAnswer": "debit",
     "reward": {

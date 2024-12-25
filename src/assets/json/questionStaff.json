@@ -1,5 +1,6 @@
 [
   {
+    "type": "question",
     "question": "Decrease of Accumulated Depreciation - Car",
     "correctAnswer": "debit",
     "reward": {
@@ -14,9 +15,21 @@
     }
   },
   {
-    "question": "Anda mendapatkan reward karena membantu atasan Anda dalam memecahkan masalah, sehingga Anda dapat maju 2 langkah."
+    "type": "event",
+    "question": "Anda mendapatkan reward karena membantu atasan Anda dalam memecahkan masalah, sehingga Anda dapat maju 2 langkah.",
+    "reward": {
+      "correct": {
+        "steps": 2,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": 0,
+        "stun": 0
+      }
+    }
   },
   {
+    "type": "question",
     "question": "Increase of Accounts Payable",
     "correctAnswer": "credit",
     "reward": {
@@ -31,6 +44,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Decrease of Interest Payable",
     "correctAnswer": "debit",
     "reward": {
@@ -45,9 +59,21 @@
     }
   },
   {
-    "question": "Memberikan terobosan bagi pengembangan sistem pengendalian internal perusahaan, sehingga mendapat Reward maju 12 langkah"
+    "type": "question",
+    "question": "Memberikan terobosan bagi pengembangan sistem pengendalian internal perusahaan, sehingga mendapat Reward maju 12 langkah",
+    "reward": {
+      "correct": {
+        "steps": 12,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": 0,
+        "stun": 0
+      }
+    }
   },
   {
+    "type": "question",
     "question": "Decrease of Interest Receivable",
     "correctAnswer": "credit",
     "reward": {
@@ -62,6 +88,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Decrease of Unearned Revenue",
     "correctAnswer": "credit",
     "reward": {
@@ -76,6 +103,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase of Rent Revenue",
     "correctAnswer": "credit",
     "reward": {
@@ -90,9 +118,21 @@
     }
   },
   {
-    "question": "Ditemukan kesalahan pada pencatatan laporan keuangan yang Anda lakukan, sehingga Anda akan mundur 5 langkah."
+    "type": "event",
+    "question": "Ditemukan kesalahan pada pencatatan laporan keuangan yang Anda lakukan, sehingga Anda akan mundur 5 langkah.",
+    "reward": {
+      "correct": {
+        "steps": 0,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": -5,
+        "stun": 0
+      }
+    }
   },
   {
+    "type": "question",
     "question": "Increase of Cost of Goods Sold",
     "correctAnswer": "debit",
     "reward": {

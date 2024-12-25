@@ -1,8 +1,20 @@
 [
   {
-    "question": "Anda mendapat double promote dari pimpinan, sehingga anda langsung naik menuju kotak 81"
+    "type": "question",
+    "question": "Anda mendapat double promote dari pimpinan, sehingga anda langsung naik menuju kotak 81",
+    "reward": {
+      "correct": {
+        "steps": 0,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": -34,
+        "stun": 0
+      }
+    }
   },
   {
+    "type": "question",
     "question": "Increase of Rent Expense",
     "correctAnswer": "debit",
     "reward": {
@@ -17,6 +29,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase of Amortization Expense",
     "correctAnswer": "debit",
     "reward": {
@@ -31,6 +44,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase of Interest Expenses",
     "correctAnswer": "debit",
     "reward": {
@@ -45,6 +59,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Decrease of Service Revenue",
     "correctAnswer": "debit",
     "reward": {
@@ -59,6 +74,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase of Rent Revenue",
     "correctAnswer": "credit",
     "reward": {
@@ -73,6 +89,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Decrease of Promotion Expense",
     "correctAnswer": "credit",
     "reward": {
@@ -87,9 +104,21 @@
     }
   },
   {
-    "question": "Anda menyajikan informasi yang salah, sehingga anda dikenakan sanksi berupa mundur 16 langkah."
+    "type": "event",
+    "question": "Anda menyajikan informasi yang salah, sehingga anda dikenakan sanksi berupa mundur 16 langkah.",
+    "reward": {
+      "correct": {
+        "steps": 0,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": -16,
+        "stun": 0
+      }
+    }
   },
   {
+    "type": "question",
     "question": "Decrease of Consulting Expense",
     "correctAnswer": "credit",
     "reward": {
@@ -104,6 +133,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase of Bonds Payable",
     "correctAnswer": "credit",
     "reward": {

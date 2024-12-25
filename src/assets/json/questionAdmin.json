@@ -1,5 +1,6 @@
 [
   {
+    "type": "question",
     "question": "Increase of Cash",
     "correctAnswer": "debit",
     "reward": {
@@ -14,6 +15,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Decrease of Supplies",
     "correctAnswer": "credit",
     "reward": {
@@ -28,6 +30,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Decrease of Inventory",
     "correctAnswer": "credit",
     "reward": {
@@ -42,6 +45,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase of Account Receivables",
     "correctAnswer": "debit",
     "reward": {
@@ -56,6 +60,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase of Bank",
     "correctAnswer": "debit",
     "reward": {
@@ -70,6 +75,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Decrease of Petty Cash",
     "correctAnswer": "credit",
     "reward": {
@@ -84,6 +90,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase of Building ",
     "correctAnswer": "debit",
     "reward": {
@@ -98,6 +105,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Decrease Accumulated Depreciation - Equipment",
     "correctAnswer": "debit",
     "reward": {
@@ -112,6 +120,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase of Office Equipment",
     "correctAnswer": "debit",
     "reward": {
@@ -126,6 +135,7 @@
     }
   },
   {
+    "type": "question",
     "question": "Increase of Factory Equipment",
     "correctAnswer": "debit",
     "reward": {
