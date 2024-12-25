@@ -14,6 +14,8 @@ import LeftLadder from "../assets/images/Left-Ladder.png";
 import RightLadder from "../assets/images/Right-Ladder.png";
 import BinusLogo from "../assets/images/Logo-Binus.png";
 
+//TESTTTTT
+
 export default function GameBoardPage() {
   const location = useLocation();
   const numPlayers = location.state?.numPlayers || 2;
