@@ -37,7 +37,7 @@ const GameControls = ({ onDiceRoll, disabled, currentPlayer, players, isQuestion
   return (
     <div className="fixed bottom-0 left-0 w-full">
       <div className="relative">
-        <div className="absolute bottom-20 left-[25%] -translate-x-1/2">
+        <div className="absolute bottom-20 left-10">
           <Dice3D isRolling={isDiceRolling} onRollComplete={handleRollComplete} key={`dice-${rollCount}`} />
         </div>
 
