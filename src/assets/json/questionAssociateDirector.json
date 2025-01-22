@@ -9,7 +9,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -2,
+        "steps": 2,
         "stun": 0
       }
     }
@@ -24,7 +24,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -2,
+        "steps": 2,
         "stun": 0
       }
     }
@@ -39,7 +39,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -2,
+        "steps": 2,
         "stun": 0
       }
     }
@@ -69,7 +69,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -2,
+        "steps": 2,
         "stun": 0
       }
     }
@@ -84,7 +84,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -2,
+        "steps": 2,
         "stun": 0
       }
     }
@@ -114,7 +114,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -2,
+        "steps": 2,
         "stun": 0
       }
     }
@@ -129,7 +129,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -2,
+        "steps": 2,
         "stun": 0
       }
     }
@@ -144,7 +144,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -2,
+        "steps": 2,
         "stun": 0
       }
     }
@@ -159,7 +159,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -2,
+        "steps": 2,
         "stun": 0
       }
     }

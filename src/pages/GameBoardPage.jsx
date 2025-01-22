@@ -141,33 +141,40 @@ export default function GameBoardPage() {
 
   const handleAnswer = (isCorrect, steps, stun) => {
     const currentPlayerData = players[currentPlayer];
-    let newPosition;
 
     if (isCorrect) {
-      newPosition = currentPlayerData.position + steps;
+      let newPosition = currentPlayerData.position + steps;
+      if (newPosition > 100) newPosition = 100;
 
-      if (newPosition > 100) {
-        newPosition = 100;
-      }
+      setPlayers((prevPlayers) => {
+        const newPlayers = [...prevPlayers];
+        newPlayers[currentPlayer] = {
+          ...newPlayers[currentPlayer],
+          position: newPosition,
+        };
+        return newPlayers;
+      });
+
+      setCurrentPlayer((prev) => (prev + 1) % numPlayers);
     } else {
-      newPosition = currentPlayerData.position - steps;
+      let newPosition = currentPlayerData.position - steps;
+      if (newPosition < 1) newPosition = 1;
 
-      if (newPosition < 1) {
-        newPosition = 1;
-      }
+      setPlayers((prevPlayers) => {
+        const newPlayers = [...prevPlayers];
+        newPlayers[currentPlayer] = {
+          ...newPlayers[currentPlayer],
+          position: newPosition,
+        };
+        return newPlayers;
+      });
 
       if (stun > 0) {
-        setStunQueue((prev) => [...prev, currentPlayer]);
+        setStunQueue((prev) => [...prev, { player: currentPlayer, remainingStuns: stun }]);
       } else {
         setCurrentPlayer((prev) => (prev + 1) % numPlayers);
       }
     }
-
-    setPlayers((prevPlayers) => {
-      const newPlayers = [...prevPlayers];
-      newPlayers[currentPlayer] = { ...newPlayers[currentPlayer], position: newPosition };
-      return newPlayers;
-    });
 
     setShowQuestionPopup(false);
   };
@@ -176,18 +183,29 @@ export default function GameBoardPage() {
 
   useEffect(() => {
     if (stunQueue.length > 0) {
-      const stunnedPlayer = stunQueue[0];
+      const currentStun = stunQueue[0];
 
       setTimeout(() => {
-        setStunQueue((prev) => prev.slice(1));
-
-        setCurrentPlayer((prev) => (prev + 1) % numPlayers);
+        if (currentStun.remainingStuns > 1) {
+          setStunQueue((prev) => [
+            {
+              ...prev[0],
+              remainingStuns: prev[0].remainingStuns - 1,
+            },
+            ...prev.slice(1),
+          ]);
+        } else {
+          setStunQueue((prev) => prev.slice(1));
+          setCurrentPlayer((prev) => (prev + 1) % numPlayers);
+        }
       }, 1000);
     }
   }, [stunQueue, numPlayers]);
 
   const handleDiceRoll = (roll) => {
-    if (isMoving || moveQueue.length > 0) return;
+    const isPlayerStunned = stunQueue.some((stun) => stun.player === currentPlayer);
+
+    if (isMoving || moveQueue.length > 0 || isPlayerStunned) return;
 
     const currentPlayerData = players[currentPlayer];
     let targetPosition = currentPlayerData.position + roll;
@@ -197,7 +215,6 @@ export default function GameBoardPage() {
     }
 
     const steps = generateSteps(currentPlayerData.position, targetPosition);
-
     setMoveQueue(steps);
   };
 
