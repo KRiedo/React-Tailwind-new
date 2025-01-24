@@ -10,7 +10,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/decision" element={<DecisionPage />} />
-        <Route path="/board" element={<GameBoardPage />} /> {/* Ensure this path matches */}
+        <Route path="/board" element={<GameBoardPage />} />
       </Routes>
     </Router>
   );
