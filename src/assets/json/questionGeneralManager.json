@@ -1,14 +1,14 @@
 [
   {
-    "type": "question",
-    "question": "Anda mendapat double promote dari pimpinan, sehingga anda langsung naik menuju kotak 81",
+    "type": "event",
+    "question": "Anda mendapat double promote dari pimpinan, mendapatkan reward 40 langkah",
     "reward": {
       "correct": {
-        "steps": 0,
+        "steps": 40,
         "stun": 0
       },
       "wrong": {
-        "steps": -34,
+        "steps": 0,
         "stun": 0
       }
     }
@@ -53,7 +53,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -1,
+        "steps": 1,
         "stun": 0
       }
     }
@@ -98,7 +98,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -1,
+        "steps": 1,
         "stun": 0
       }
     }
@@ -112,7 +112,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -16,
+        "steps": 16,
         "stun": 0
       }
     }
@@ -142,7 +142,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -1,
+        "steps": 1,
         "stun": 0
       }
     }
