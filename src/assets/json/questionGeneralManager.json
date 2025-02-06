@@ -146,5 +146,35 @@
         "stun": 0
       }
     }
+  },
+  {
+    "type": "question",
+    "question": "Increase in Short Term Loans",
+    "correctAnswer": "debit",
+    "reward": {
+      "correct": {
+        "steps": 3,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": 2,
+        "stun": 0
+      }
+    }
+  },
+  {
+    "type": "question",
+    "question": "Decrease Marketing Expense",
+    "correctAnswer": "credit",
+    "reward": {
+      "correct": {
+        "steps": 2,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": 0,
+        "stun": 1
+      }
+    }
   }
 ]
