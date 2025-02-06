@@ -38,7 +38,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -1,
+        "steps": 1,
         "stun": 0
       }
     }
@@ -53,13 +53,13 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -1,
+        "steps": 1,
         "stun": 0
       }
     }
   },
   {
-    "type": "question",
+    "type": "event",
     "question": "Memberikan terobosan bagi pengembangan sistem pengendalian internal perusahaan, sehingga mendapat Reward maju 12 langkah",
     "reward": {
       "correct": {
@@ -82,7 +82,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -1,
+        "steps": 1,
         "stun": 0
       }
     }
@@ -97,7 +97,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -1,
+        "steps": 1,
         "stun": 0
       }
     }
@@ -126,7 +126,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -5,
+        "steps": 5,
         "stun": 0
       }
     }
