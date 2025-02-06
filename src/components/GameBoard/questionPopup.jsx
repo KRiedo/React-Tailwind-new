@@ -1,6 +1,6 @@
 import React from "react";
 
-const QuestionPopup = ({ currentQuestion, handleAnswer }) => {
+const QuestionPopup = ({ currentQuestion, handleAnswer, isEventQuestion }) => {
   return (
     <div
       className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-100 rounded-md shadow-md text-gray-800 z-10"
@@ -38,31 +38,46 @@ const QuestionPopup = ({ currentQuestion, handleAnswer }) => {
       >
         {currentQuestion.question}
       </h2>
-      <div className="flex gap-4 justify-center items-center">
-        <button
-          className="bg-[D9D9D9] text-[#495464] px-5 py-2 border-2 border-[#495464] hover:bg-[#fff4ea] hover:border-[#495464] font-medium"
-          style={{
-            borderRadius: "10px",
-            marginInlineStart: "10px",
-            fontWeight: "normal",
-          }}
-          onClick={() => handleAnswer("credit")}
-        >
-          Credit
-        </button>
+      {isEventQuestion ? (
+        <div className="flex justify-center">
+          <button
+            className="bg-[D9D9D9] text-[#495464] px-5 py-2 border-2 border-[#495464] hover:bg-[#fff4ea] hover:border-[#495464] font-medium"
+            style={{
+              borderRadius: "10px",
+              fontWeight: "normal",
+            }}
+            onClick={() => handleAnswer()}
+          >
+            Next
+          </button>
+        </div>
+      ) : (
+        <div className="flex gap-4 justify-center items-center">
+          <button
+            className="bg-[D9D9D9] text-[#495464] px-5 py-2 border-2 border-[#495464] hover:bg-[#fff4ea] hover:border-[#495464] font-medium"
+            style={{
+              borderRadius: "10px",
+              marginInlineStart: "10px",
+              fontWeight: "normal",
+            }}
+            onClick={() => handleAnswer("credit")}
+          >
+            Credit
+          </button>
 
-        <button
-          className="bg-[D9D9D9] text-[#495464] px-5 py-2 rounded-md border-2 border-[#495464] hover:bg-[#fff4ea] hover:border-[#495464] font-medium"
-          style={{
-            borderRadius: "10px",
-            marginRight: "20px",
-            fontWeight: "normal",
-          }}
-          onClick={() => handleAnswer("debit")}
-        >
-          Debit
-        </button>
-      </div>
+          <button
+            className="bg-[D9D9D9] text-[#495464] px-5 py-2 rounded-md border-2 border-[#495464] hover:bg-[#fff4ea] hover:border-[#495464] font-medium"
+            style={{
+              borderRadius: "10px",
+              marginRight: "20px",
+              fontWeight: "normal",
+            }}
+            onClick={() => handleAnswer("debit")}
+          >
+            Debit
+          </button>
+        </div>
+      )}
     </div>
   );
 };
