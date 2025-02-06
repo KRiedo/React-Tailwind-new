@@ -65,30 +65,35 @@ const QuestionCard = ({ currentBoardNumber, onAnswer }) => {
   const handleAnswer = (answer) => {
     if (!currentQuestion) return;
 
-    const isCorrect = answer === currentQuestion.correctAnswer;
-    const reward = isCorrect ? currentQuestion.reward.correct : currentQuestion.reward.wrong;
+    if (currentQuestion.type === "event") {
+      const reward = currentQuestion.reward.correct.steps !== 0 ? currentQuestion.reward.correct : currentQuestion.reward.wrong;
+      const isCorrect = currentQuestion.reward.correct.steps !== 0;
+      onAnswer(isCorrect, reward.steps, reward.stun);
+    } else {
+      const isCorrect = answer === currentQuestion.correctAnswer;
+      const reward = isCorrect ? currentQuestion.reward.correct : currentQuestion.reward.wrong;
 
-    setResult({
-      isCorrect,
-      message: isCorrect ? `Jawaban kamu benar! Maju ${reward.steps} langkah.` : `Jawaban kamu salah! Mundur ${Math.abs(reward.steps)} langkah.`,
-      reward: reward,
-      stun: reward.stun,
-    });
+      setResult({
+        isCorrect,
+        message: isCorrect ? `Jawaban kamu benar! Maju ${reward.steps} langkah.` : `Jawaban kamu salah! Mundur ${Math.abs(reward.steps)} langkah.`,
+        reward: reward,
+        stun: reward.stun,
+      });
 
-    setAnswerSubmitted(true);
+      setAnswerSubmitted(true);
+    }
   };
 
   const handleConfirmResult = () => {
     if (!result) return;
-
     onAnswer(result.isCorrect, result.reward.steps, result.stun);
   };
 
   return (
     <div>
-      {currentQuestion && !answerSubmitted && <QuestionPopup currentQuestion={currentQuestion} handleAnswer={handleAnswer} />}
+      {currentQuestion && !answerSubmitted && <QuestionPopup currentQuestion={currentQuestion} handleAnswer={handleAnswer} isEventQuestion={currentQuestion.type === "event"} />}
 
-      {answerSubmitted && currentQuestion && <ResultPopup currentQuestion={currentQuestion} isCorrect={result.isCorrect} reward={result.reward} onContinue={handleConfirmResult} />}
+      {answerSubmitted && currentQuestion && currentQuestion.type !== "event" && <ResultPopup currentQuestion={currentQuestion} isCorrect={result.isCorrect} reward={result.reward} onContinue={handleConfirmResult} />}
     </div>
   );
 };
