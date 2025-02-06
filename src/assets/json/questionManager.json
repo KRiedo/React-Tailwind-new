@@ -9,7 +9,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -1,
+        "steps": 1,
         "stun": 0
       }
     }
@@ -39,7 +39,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -1,
+        "steps": 1,
         "stun": 0
       }
     }
@@ -69,7 +69,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -1,
+        "steps": 1,
         "stun": 0
       }
     }
@@ -83,7 +83,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -34,
+        "steps": 34,
         "stun": 0
       }
     }
@@ -112,7 +112,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -2,
+        "steps": 2,
         "stun": 0
       }
     }
@@ -142,7 +142,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -1,
+        "steps": 1,
         "stun": 0
       }
     }
