@@ -145,5 +145,65 @@
         "stun": 1
       }
     }
+  },
+  {
+    "type": "question",
+    "question": "Increase in Obligations",
+    "correctAnswer": "credit",
+    "reward": {
+      "correct": {
+        "steps": 2,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": 0,
+        "stun": 1
+      }
+    }
+  },
+  {
+    "type": "question",
+    "question": "Increase of Trade Receivable",
+    "correctAnswer": "debit",
+    "reward": {
+      "correct": {
+        "steps": 1,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": 1,
+        "stun": 0
+      }
+    }
+  },
+  {
+    "type": "question",
+    "question": "Decrease of Business Loans",
+    "correctAnswer": "debit",
+    "reward": {
+      "correct": {
+        "steps": 2,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": 0,
+        "stun": 1
+      }
+    }
+  },
+  {
+    "type": "question",
+    "question": "Increase of Vehicles",
+    "correctAnswer": "debit",
+    "reward": {
+      "correct": {
+        "steps": 1,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": 1,
+        "stun": 0
+      }
+    }
   }
 ]

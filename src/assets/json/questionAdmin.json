@@ -148,5 +148,80 @@
         "stun": 1
       }
     }
+  },
+  {
+    "type": "question",
+    "question": "Increase in Asset Account",
+    "correctAnswer": "debit",
+    "reward": {
+      "correct": {
+        "steps": 2,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": 0,
+        "stun": 1
+      }
+    }
+  },
+  {
+    "type": "question",
+    "question": "Increase in Liability Account",
+    "correctAnswer": "credit",
+    "reward": {
+      "correct": {
+        "steps": 1,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": 1,
+        "stun": 0
+      }
+    }
+  },
+  {
+    "type": "question",
+    "question": "Decrease of Expenses",
+    "correctAnswer": "credit",
+    "reward": {
+      "correct": {
+        "steps": 1,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": 1,
+        "stun": 0
+      }
+    }
+  },
+  {
+    "type": "question",
+    "question": "Increase of Revenue Account",
+    "correctAnswer": "credit",
+    "reward": {
+      "correct": {
+        "steps": 2,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": 0,
+        "stun": 1
+      }
+    }
+  },
+  {
+    "type": "question",
+    "question": "Entry that will be recorded on the left side of an account is",
+    "correctAnswer": "debit",
+    "reward": {
+      "correct": {
+        "steps": 2,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": 0,
+        "stun": 1
+      }
+    }
   }
 ]

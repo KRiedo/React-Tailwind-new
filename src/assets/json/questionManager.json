@@ -146,5 +146,50 @@
         "stun": 0
       }
     }
+  },
+  {
+    "type": "question",
+    "question": "Increase of Miscellaneous Expense",
+    "correctAnswer": "debit",
+    "reward": {
+      "correct": {
+        "steps": 3,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": 2,
+        "stun": 0
+      }
+    }
+  },
+  {
+    "type": "question",
+    "question": "Decrease of Office Rent",
+    "correctAnswer": "credit",
+    "reward": {
+      "correct": {
+        "steps": 2,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": 0,
+        "stun": 1
+      }
+    }
+  },
+  {
+    "type": "question",
+    "question": "Increase of Payroll Payable",
+    "correctAnswer": "credit",
+    "reward": {
+      "correct": {
+        "steps": 2,
+        "stun": 0
+      },
+      "wrong": {
+        "steps": 0,
+        "stun": 1
+      }
+    }
   }
 ]
