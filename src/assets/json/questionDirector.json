@@ -38,7 +38,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -37,
+        "steps": 19,
         "stun": 0
       }
     }
@@ -68,7 +68,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -2,
+        "steps": 2,
         "stun": 0
       }
     }
@@ -98,7 +98,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -1,
+        "steps": 1,
         "stun": 0
       }
     }

@@ -14,8 +14,6 @@ import LeftLadder from "../assets/images/Left-Ladder.png";
 import RightLadder from "../assets/images/Right-Ladder.png";
 import BinusLogo from "../assets/images/Logo-Binus.png";
 
-//TESTTTTT
-
 export default function GameBoardPage() {
   const location = useLocation();
   const numPlayers = location.state?.numPlayers || 2;
@@ -27,6 +25,9 @@ export default function GameBoardPage() {
   const [moveQueue, setMoveQueue] = useState([]);
   const [showQuestionPopup, setShowQuestionPopup] = useState(false);
   const [currentBoardNumber, setCurrentBoardNumber] = useState(0);
+  const [stunQueue, setStunQueue] = useState([]);
+  const [gameEnded, setGameEnded] = useState(false);
+  const [winner, setWinner] = useState(null);
 
   useEffect(() => {
     const playerColors = ["#FF5733", "#33FF57", "#3357FF", "#FF33F6"];
@@ -118,21 +119,34 @@ export default function GameBoardPage() {
           const snakeOrLadder = checkSnakeOrLadder(finalPosition);
 
           if (snakeOrLadder) {
+            const newPos = snakeOrLadder.to;
             setPlayers((prevPlayers) => {
               const newPlayers = [...prevPlayers];
               newPlayers[currentPlayer] = {
                 ...newPlayers[currentPlayer],
-                position: snakeOrLadder.to,
+                position: newPos,
               };
               return newPlayers;
             });
             setTimeout(() => {
-              setCurrentBoardNumber(snakeOrLadder.to);
-              setShowQuestionPopup(true);
+              if (newPos === 100) {
+                setWinner(currentPlayer);
+                setGameEnded(true);
+              } else {
+                setCurrentBoardNumber(newPos);
+                setShowQuestionPopup(true);
+              }
             }, 300);
           } else {
             setCurrentBoardNumber(finalPosition);
-            setShowQuestionPopup(true);
+            setTimeout(() => {
+              if (finalPosition === 100) {
+                setWinner(currentPlayer);
+                setGameEnded(true);
+              } else {
+                setShowQuestionPopup(true);
+              }
+            }, 300);
           }
         }
       }, 300);
@@ -155,7 +169,12 @@ export default function GameBoardPage() {
         return newPlayers;
       });
 
-      setCurrentPlayer((prev) => (prev + 1) % numPlayers);
+      if (newPosition === 100) {
+        setWinner(currentPlayer);
+        setGameEnded(true);
+      } else {
+        setCurrentPlayer((prev) => (prev + 1) % numPlayers);
+      }
     } else {
       let newPosition = currentPlayerData.position - steps;
       if (newPosition < 1) newPosition = 1;
@@ -178,8 +197,6 @@ export default function GameBoardPage() {
 
     setShowQuestionPopup(false);
   };
-
-  const [stunQueue, setStunQueue] = useState([]);
 
   useEffect(() => {
     if (stunQueue.length > 0) {
@@ -216,6 +233,22 @@ export default function GameBoardPage() {
 
     const steps = generateSteps(currentPlayerData.position, targetPosition);
     setMoveQueue(steps);
+  };
+
+  const handleRestart = () => {
+    const playerColors = ["#FF5733", "#33FF57", "#3357FF", "#FF33F6"];
+    const initialPlayers = Array.from({ length: numPlayers }, (_, index) => ({
+      id: index,
+      position: 0,
+      color: playerColors[index],
+    }));
+    setPlayers(initialPlayers);
+    setCurrentPlayer(0);
+    setMoveQueue([]);
+    setShowQuestionPopup(false);
+    setStunQueue([]);
+    setGameEnded(false);
+    setWinner(null);
   };
 
   return (
@@ -275,6 +308,58 @@ export default function GameBoardPage() {
             handleAnswer(isCorrect, steps, stun);
           }}
         />
+      )}
+
+      {gameEnded && (
+        <div
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-100 rounded-md shadow-md text-gray-800 z-10"
+          style={{
+            width: "90%",
+            maxWidth: "400px",
+            padding: "35px",
+            backgroundColor: "#fff4ea",
+            borderRadius: "10px",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+            transform: "translate(-50%, -50%) scale(1)",
+            textAlign: "left",
+            stroke: "12px",
+          }}
+        >
+          <h2
+            className="text-lg font-semibold mb-4"
+            style={{
+              fontSize: "2.2rem",
+              fontWeight: "bold",
+              color: "#495464",
+              fontFamily: "sans-serif",
+            }}
+          >
+            Selamat!
+          </h2>
+          <p
+            className="text-lg font-semibold mb-4"
+            style={{
+              fontSize: "1.1rem",
+              color: "#495464",
+              marginBottom: "15%",
+            }}
+          >
+            Player {winner + 1} Menang!
+          </p>
+
+          <div className="flex justify-center">
+            <button
+              className="bg-[D9D9D9] text-[#495464] px-5 py-2 border-2 border-[#495464] hover:bg-[#fff4ea] hover:border-[#495464] font-medium"
+              style={{
+                borderRadius: "10px",
+                fontWeight: "normal",
+              }}
+              onClick={handleRestart}
+            >
+              Restart Game
+            </button>
+          </div>
+        </div>
       )}
     </div>
   );
