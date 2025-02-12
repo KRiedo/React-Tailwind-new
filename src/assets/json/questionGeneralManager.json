@@ -68,7 +68,7 @@
         "stun": 0
       },
       "wrong": {
-        "steps": -1,
+        "steps": 1,
         "stun": 0
       }
     }
